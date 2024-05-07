@@ -1,0 +1,168 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Instruction tuned language models are better knowledge learners
+By: Zhengbao Jiang Zhiqing Sun, Weijia Shi et al
+Paper Link: https://arxiv.org/pdf/2402.12847
+Paper Submission Date: 20th of February 2024
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understnad whether instruct based LLMs are to be used rather than plain generative transformer based models when want
+to produce reproducible results in the question answer format.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Large Language Models (LLMs) store vast amounts of factual knowledge in their parameters through large scale pre training and this knowledge
+can be used to anwer various questions. However this factual knowledge is static and can become outdated as the world evolves or prove
+insufficient when LLMs are used in specialized or private domains. To keep LLMs up-to-date it is common to continue pre training on new
+documents to store knowledge in parameters which allows LLMs to effectively answer queries that require up-to-date information.
+
+Authors of the paper conduct extensive experiments using Llama-2 to answer the following question:
+"""
+To what extent can we augment the knowledge stored in modern LLMs by continued pre-training on new documents, either with or without 
+subsequent instruction-tuning?
+"""
+
+Authors found that question-answer (QA) paris are generally straighforward and easily digestible, while documents tend to be more complex
+and cluttered, often weaving many factual statements together in a more intricate manner. Based on this insight authors hypothesize that -
+"""
+It is beneficial to deliberately expose LLMs to QA data before continued pre training on documents so that the process of encoding knowledge
+from complex documents take into account how this knowledge is accessed through questions.
+"""
+
+Authors coin this hypothesis as 'Pre-Instruction-Tuning' (PIT) and conduct comprehensive experiments to benchmark different variations of
+PIT.
+
+Based on the experiments conducted PIT outperforms the standard instruction-tuning apporach improving QA accuracies by 17.8% on Llama-2 7B
+(30.3%-48.1%) and 16.3% on Llama-2-70B (46.4-62.7%)
+==========================================================================================================================================
+Content - 2. Building a Dataset to Study Continual Knowledge Acquistion
+==========================================================================================================================================
+Authors used Llama (7B and 70B) and used wikipedia articles classified under the '2023' category including topics from diverse domains
+such as films, arts, economics, politics, events, etc.
+
+To collect QA pairs for either instruction-tuning or performance evaluation authors used publicly available LLMs to generate diverse
+questions and their respective answers given the article as context based on the following prompt.
+
+"""
+Given the following summary about the subject {topic}, generate a comprehensive list of questions and corresponding answers that cover all
+ aspects. To make the question clear, always include {topic} in the question. Answers should be concise, consisting of a few short phrases
+separated by commas.
+
+Output in the following format:
+Q: an open-domain question about the subject {topic} (the subject {topic} should always be included)
+A: phrase1, phrase2, ...
+
+Summary:
+{summary}
+"""
+==========================================================================================================================================
+Content - 3. Experiment Settings
+==========================================================================================================================================
+Example of the Output generate useing the prompt (used in section 2) was edited and prepended with <bos> token and concatenated with <eos>
+token.
+
+Example of document:
+"""
+<bos> Oppenheimer ( OP-ԥQ-hy-PԥU) is a 2023 epic biographical thriller film written and directed by Christopher Nolan. It stars Cillian
+Murphy ... Paris on July 11, 2023, and was theatrically released ...
+
+
+<bos> Question: Who wrote and directed the film Oppenheimer?
+Answer: Christopher Nolan. <eos>
+<bos> Question: Who stars as J. Robert Oppenheimer in the film?
+Answer: Cillian Murphy. <eos>
+"""
+
+First part is the actual document which is followed by QA pairs.
+The authors did not concatenate <eos> token for the documents as they only used the first section of the original article and it did not 
+signify the end of the article.
+
+Authors used EM (Exact Match) methodology as their primary metric for model evaluation as most of the QA paris were factoid questions 
+and answers were relatively short.
+==========================================================================================================================================
+Content - 4. How Much Knowledge Can LLMs Absorb via Continued Pre-training Followed by Instruction-tuning?
+==========================================================================================================================================
+This section talks about experiments run by the authors on Llama-2 7B and 70B models to test what are the actual limits of modern LLMs to
+absorb knowledge from new documents and answer questions about them using the standard continued pre-training followed by
+instruction-tuning recipe.
+
+Authors two experiments:
+Setting 1 - Continued pre-training: 
+    Train on test documents without instruction-tuning.
+Setting 2 - Standard instruction-tuning: 
+    Train on both train and test documents before instruction-tuning on train QA pairs
+
+The original models of 7B and 70B performed at 9.5%/17.2% which indicates that most knowledge of the test documents is not included in the
+original pre training corpus. 
+
+The models after experiments performed using setting 1 resulted in an improvement in the performance to 27.2%/41.7% indicating that LLMs can
+absorb some amount of knowledge
+
+The models after experiments performed using setting 2 results in an improvement in the performance to 30.3%/46.4%, indicating the
+effectiveness of the instruction tuning receipe. Which contradicts the results of the paper 'Physics of language models: Part 3.1, knowledge
+storage and extraction' by Zeyuan Allen Zhu and Yuanzhi Li. 2023a. Which demonstrates that instruction-tuning after pre-training is 
+ineffective on a randomly initialized GPT-2-like transformer.
+
+Authors assume the difference probably arises because Llama-2, through its pre-training on diverse corpora comprising raw documents and QA
+data, has developed a certain degree of proficiency in extracting knowledge from its parameters via questions.
+
+Authors wanted to know 'How does lower perplexity of documents lead to generalization to answering related questions?'
+To answer this question they monitored three metrics
+1. Knowledge acquisition:
+    QA accuracies measured using Exact Match (EM).
+2. Perplexity of documents:
+    Computed perplexity on all tokens of the documents
+3. Knowledge retention:
+    Approximate the retention of accumulated knowledge during pretraining by assessing the QA accuracy on the Natural Questions (NQ) dataset.
+   
+NQ was released in 2019, and primarily includes questions based on Wikipedia articles from that time.
+
+Experiment results conclude that QA accuracy consistently improves as perplexity approaches one, indicating that factual knowledge learning
+necessitates exhaustive loss minimization over all tokens. This contrasts with learning general skills, where overly optimizing leads
+to overfitting.
+
+In summary 'lower perplexity does lead to stronger generalization when responding to questions, but it comes at the expense of forgetting
+previously acquired knowledge.'
+==========================================================================================================================================
+Content - 5. How Much Knowledge Can LLMs Absorb via Continued Pre-training Followed by Instruction-tuning?
+==========================================================================================================================================
+Author found that question-answer (QA) pairs are generally straighforward and easily digestible, while documents tend to be more complex 
+and cluttered, often weaving many factual statements together in a more intricate manner and therefore hypothesize that -
+"""
+It is beneficial to deliberately expose LLMs to QA data before continued pre training on documents so that the process of encoding knowledge
+from complex documents take into account how this knowledge is accessed through questions.
+"""
+
+Author coined this hypothesis as 'Pre Instruction Tuning' (PIT). Author performed multiple variants of PIT
+
+Pre-instruction-tuning with QA only:
+    - Authors expose instruction tuning data before continued pre training on documents - training on topically related QA pairs before 
+    trainging on test documents. Intuition behind this is that questions help LLMs to recognize key types of information, enabling LLMs to 
+    focus on important information, during pre-training on subsequent documents, even though the questions are not directly tied to the
+    documents.
+
+Pre-instruction-tuning on QA and documents sequentially:
+    - Authors second implementation trains the mode on QA and associated documents sequentially, with the intuition that the ability to absorb
+    knowledge from documents can be strengthened if an LLM is trained on the complex documents after it has grasped the associated simpler QA
+    pairs.
+
+PIT on QA pairs and documents sequentially surpasses the QA only variant and standard instructiontuning from 30.3%/46.4% to 32.5%/54.6%
+for llama-2 7B and 70B, demonstrating its effectiveness.
+Training on both QA pairs and documents prevents forgetting, but it also obscures how the learning process works. It is unclear whether
+LLMs grasp QA pairs before encoding knowledge from documents, or if it works the other way around.
+
+The authors performed experiments on combinations of the documents and questions answer pairs. They found that positioning QA pairs before
+corresponding documents achieves better performance in both grouped and interleaved arrangements, indicating that during PIT, the learning 
+mechanism prioritizes understanding how to access knowledge before learning to absorb information from the more complex and
+information-dense documents.
+==========================================================================================================================================
+Content - 6. Related work
+==========================================================================================================================================
+Not needed
+==========================================================================================================================================
+Content - 7. Conclusion
+==========================================================================================================================================
+Not needed
+==========================================================================================================================================
