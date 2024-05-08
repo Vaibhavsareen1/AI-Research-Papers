@@ -8,7 +8,7 @@ Paper Submission Date: 20th of February 2024
 ============================================================================================================================================
 Why this paper?
 ============================================================================================================================================
-This paper was used to understnad whether instruct based LLMs are to be used rather than plain generative transformer based models when we 
+This paper was used to understand whether instruct based LLMs are to be used rather than plain generative transformer based models when we 
 want to produce reproducible results in the Question Answer format.
 ============================================================================================================================================
 Content - 1. Introduction
