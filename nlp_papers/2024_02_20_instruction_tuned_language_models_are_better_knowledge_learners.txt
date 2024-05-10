@@ -14,7 +14,7 @@ want to produce reproducible results in the Question Answer format.
 Content - 1. Introduction
 ============================================================================================================================================
 Large Language Models (LLMs) store vast amounts of factual knowledge in their parameters through large scale pre training and this knowledge
-can be used to anwer various questions. However this factual knowledge is static and can become outdated as the world evolves or prove
+can be used to answer various questions. However this factual knowledge is static and can become outdated as the world evolves or prove
 insufficient when LLMs are used in specialized or private domains. To keep LLMs up-to-date it is common to continue pre training on new
 documents to store knowledge in parameters which allows LLMs to effectively answer queries that require up-to-date information.
 
@@ -34,7 +34,7 @@ from complex documents take into account how this knowledge is accessed through 
 Authors coin this hypothesis as 'Pre-Instruction-Tuning' (PIT) and conduct comprehensive experiments to benchmark different variations of
 PIT.
 
-Based on the experiments conducted PIT outperforms the standard instruction-tuning apporach improving QA accuracies by 17.8% on Llama-2 7B
+Based on the experiments conducted PIT outperforms the standard instruction-tuning approach improving QA accuracies by 17.8% on Llama-2 7B
 (30.3%-48.1%) and 16.3% on Llama-2-70B (46.4-62.7%)
 ==========================================================================================================================================
 Content - 2. Building a Dataset to Study Continual Knowledge Acquistion
@@ -47,7 +47,7 @@ questions and their respective answers given the article as context based on the
 
 """
 Given the following summary about the subject {topic}, generate a comprehensive list of questions and corresponding answers that cover all
- aspects. To make the question clear, always include {topic} in the question. Answers should be concise, consisting of a few short phrases
+aspects. To make the question clear, always include {topic} in the question. Answers should be concise, consisting of a few short phrases
 separated by commas.
 
 Output in the following format:
@@ -60,7 +60,7 @@ Summary:
 ==========================================================================================================================================
 Content - 3. Experiment Settings
 ==========================================================================================================================================
-Example of the Output generate useing the prompt (used in section 2) was edited and prepended with <bos> token and concatenated with <eos>
+Example of the output generated using the prompt (used in section 2) was edited and prepended with <bos> token and concatenated with <eos>
 token.
 
 Example of document:
@@ -75,9 +75,9 @@ Answer: Christopher Nolan. <eos>
 Answer: Cillian Murphy. <eos>
 """
 
-First part is the actual document which is followed by QA pairs.
-The authors did not concatenate <eos> token for the documents as they only used the first section of the original article and it did not 
-signify the end of the article.
+First part of the example is the actual document which is followed by QA pairs.
+The authors did not concatenate <eos> token for the document as seen in the example as they only used the first section of the original 
+article and it did not signify the end of the article.
 
 Authors used EM (Exact Match) methodology as their primary metric for model evaluation as most of the QA paris were factoid questions 
 and answers were relatively short.
@@ -88,7 +88,7 @@ This section talks about experiments run by the authors on Llama-2 7B and 70B mo
 absorb knowledge from new documents and answer questions about them using the standard continued pre-training followed by
 instruction-tuning recipe.
 
-Authors two experiments:
+Authors performed two experiments:
 Setting 1 - Continued pre-training: 
     Train on test documents without instruction-tuning.
 Setting 2 - Standard instruction-tuning: 
@@ -97,16 +97,17 @@ Setting 2 - Standard instruction-tuning:
 The original models of 7B and 70B performed at 9.5%/17.2% which indicates that most knowledge of the test documents is not included in the
 original pre training corpus. 
 
-The models after experiments performed using setting 1 resulted in an improvement in the performance to 27.2%/41.7% indicating that LLMs can
+The models after experiments performed using **setting 1** resulted in an improvement in the performance to 27.2%/41.7% indicating that LLMs can
 absorb some amount of knowledge
 
-The models after experiments performed using setting 2 results in an improvement in the performance to 30.3%/46.4%, indicating the
+The models after experiments performed using **setting 2** results in an improvement in the performance to 30.3%/46.4%, indicating the
 effectiveness of the instruction tuning receipe. Which contradicts the results of the paper 'Physics of language models: Part 3.1, knowledge
 storage and extraction' by Zeyuan Allen Zhu and Yuanzhi Li. 2023a. Which demonstrates that instruction-tuning after pre-training is 
 ineffective on a randomly initialized GPT-2-like transformer.
 
 Authors assume the difference probably arises because Llama-2, through its pre-training on diverse corpora comprising raw documents and QA
-data, has developed a certain degree of proficiency in extracting knowledge from its parameters via questions.
+data, has developed a certain degree of proficiency in extracting knowledge from its parameters via questions where as a randomly initialized 
+GPT-2 like transformer used in the paper 'Physics of language models: Part 3.1, knowledge storage and extraction' was not able to do so.
 
 Authors wanted to know 'How does lower perplexity of documents lead to generalization to answering related questions?'
 To answer this question they monitored three metrics
@@ -144,19 +145,19 @@ Pre-instruction-tuning with QA only:
     documents.
 
 Pre-instruction-tuning on QA and documents sequentially:
-    - Authors second implementation trains the mode on QA and associated documents sequentially, with the intuition that the ability to absorb
-    knowledge from documents can be strengthened if an LLM is trained on the complex documents after it has grasped the associated simpler QA
-    pairs.
+    - Authors second implementation trains the mode on QA and associated documents sequentially, with the intuition that the ability to 
+    absorb knowledge from documents can be strengthened if an LLM is trained on the complex documents after it has grasped the associated
+    simpler QA pairs.
 
 PIT on QA pairs and documents sequentially surpasses the QA only variant and standard instructiontuning from 30.3%/46.4% to 32.5%/54.6%
 for llama-2 7B and 70B, demonstrating its effectiveness.
 Training on both QA pairs and documents prevents forgetting, but it also obscures how the learning process works. It is unclear whether
 LLMs grasp QA pairs before encoding knowledge from documents, or if it works the other way around.
 
-The authors performed experiments on combinations of the documents and questions answer pairs. They found that positioning QA pairs before
-corresponding documents achieves better performance in both grouped and interleaved arrangements, indicating that during PIT, the learning 
-mechanism prioritizes understanding how to access knowledge before learning to absorb information from the more complex and
-information-dense documents.
+The authors performed experiments on combinations of the documents and questions answer pairs. They found that **positioning QA pairs
+before corresponding documents achieves better performance in both grouped and interleaved arrangements, indicating that during PIT, the
+learning mechanism prioritizes understanding how to access knowledge before learning to absorb information from the more complex and
+information-dense documents.**
 ==========================================================================================================================================
 Content - 6. Related work
 ==========================================================================================================================================
