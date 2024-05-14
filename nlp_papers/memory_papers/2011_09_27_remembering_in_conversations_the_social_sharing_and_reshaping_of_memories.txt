@@ -1,0 +1,50 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Remembering in Conversations: The Social Sharing and Reshaping of Memories
+By: William Hirst and Gerald Echterhoff
+Paper Link: https://www.uni-muenster.de/imperia/md/content/psyifp/aeechterhoff/hirstechterhoff_commsharingmem_annrevpsy_onlinefirst.pdf
+Paper Submission Date: 27th of September 2011
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understand whether instruct based LLMs are to be used rather than plain generative transformer based models when we 
+want to produce reproducible results in the Question Answer format.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Human memory serves variety of functions but what might be unqiue to humans is that their remembering has a communicative function.
+
+One diary study revealed that 62% of the events recorded by participants had already been told to others by evening of the day that they 
+occured. Another study tracked conversational exchanges about a class field trip to a morgue. Although the original class contained only 33
+students, after 3 exchanges 881 people knew of the visit to the morgue.
+
+According to the authors the pervasive exchange of memories may be becoming broader and quicker as social media supplies another means of 
+communicating with others.
+
+These studies show that people share with each other both their episodic and semantic memories.
+
+Authors are particularly interested in 'remembering within a conversation'. Their interest is not in the reasons for conversing about the
+past but it is in the consequences of conversational remembering for memory. To find the reasons the authors ask two sets of questions and
+they are:
+
+1. The first set of questions focuses on the memories emerging withing a conversation.
+    - How does individual remembering differ from conversational remembering?
+    - Is remembering in a conversation more effective than remembering in isolation?
+    - Do answers of the above questions depend on the circumstances of the conversation and the participants in the conversation?
+
+2. The second set of questions focuses on the memories emerging withing a conversation
+    - This set of questions are further subdivided by distinguishing the person doing the remembering in the preceding conversation a.k.a
+      the speaker from the person listening to the remembering a.k.a the listener.
+    - The questions are further divided into concerns about the effect of what a participant says while in the role of a speaker on her own
+      memory and what she says on listeners; subsequent memory.
+============================================================================================================================================
+Content - 2. Conversational Remembering and the Extended Mind
+============================================================================================================================================
+The authors say that many scholars have observed that cognition is often supported by external sources such as media, cultural institutions
+or social networks. In the case of 'conversational remembering' conversations can be considered as a support.
+As an example:
+    - One person in the conversation for instance might remind the other of an initially forgotten memory
+
+This means the performance of any individual conversational participant depends critically on others.
+Authors say that conversations and internal processing can become so interwined that it makes it difficult to separate the two.
