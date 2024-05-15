@@ -8,8 +8,8 @@ Paper Submission Date: 27th of September 2011
 ============================================================================================================================================
 Why this paper?
 ============================================================================================================================================
-This paper was used to understand whether instruct based LLMs are to be used rather than plain generative transformer based models when we 
-want to produce reproducible results in the Question Answer format.
+This paper was used to understand why and how information is retained as a form of memory during a conversation. What leads to forgetting of 
+a piece of information during a conversation. What is retained after the conversation gets over. 
 ============================================================================================================================================
 Content - 1. Introduction
 ============================================================================================================================================
@@ -48,3 +48,169 @@ As an example:
 
 This means the performance of any individual conversational participant depends critically on others.
 Authors say that conversations and internal processing can become so interwined that it makes it difficult to separate the two.
+============================================================================================================================================
+Content - 3. Remembering in a conversation: How does the act of conversing shape remembering?
+============================================================================================================================================
+Remembering is often collaborative. For example people may experience the same event and then come together to talk about it. The group view
+their tasks as helping each other to remember the past.
+============================================================================================================================================
+Content - 4. Benefits of Collaborative Remembering
+============================================================================================================================================
+4.1 Transactive memory:
+Division of a memory task within a group, allowing members to profit from the others’ domain-specific knowledge or expertise.
+
+When several people come together as a team or group to work on a task they can under the right circumstances, perform better than they could
+as individuals.
+
+According to the theory of transactive memory, people can divide a memory task among themselves so as to make it easy for them to fill in 
+gaps in each other’s recall. In this way, they distribute the burden of remembering, using one another as external memory aids. This division
+of responsibilities is referred to as 'transactive memory system'.
+
+To achieve effective transactive memory, group members need a sufficient amount of knowledge or correct intuition about what each other can
+remember.
+
+4.2 Collaborative Facilitation:
+The authors have observed that experienments have repeatedly shown that the group as a unit, recalls more than at least some of the
+individual members of the group might recall alone. This collaborative facilitation arises in part because not all the original material is
+equally memorable across participants and hence some of the participants may contribute to the group recounting something that would not
+appear in other members' recall.
+============================================================================================================================================
+Content - 5. Costs of Collaborative Remembering
+============================================================================================================================================
+Authors say that just because a group may remember more than an individual would remember in isolation, the group does not necessarily
+remember all that individual recalls would suggest the group is  capable of remembering. i.e group recounting is not the sum of the
+individual capacities of the group members.
+
+5.1 Collaborative inhibition:
+Reduced recall performance of groups compared to the sum of individual performances.
+(group recall score < nominal recall score)
+
+Experiments where conducted which contrast group recall scores with nominal recall scores. A nominal recall score is calculated by examining
+individual recall performance.
+
+Example of experiment:
+Testing two individuals where one of whom remembers in isolation items A, B, D and F from the original study material and the second of
+whom remembers B, C and F in isolation. The nominal recall score would be 5 as 5 distinct items were recalled across two individuals.
+Where as these two individuals would recall for instance B, D and F as a joint effort. The group recall score thus becomes 3 which is less
+than nominal recall score.
+
+This shows us that the collaboration seemly inhibits some memories from emerging into the group recounting thereby leading the group recount
+less than what one would expect.
+
+Collaborative inhibition could be attributed to 'free riding'. i.e. when someone contributes little or nothing to a group effort but
+still receives the same benefits as others who contribute more.
+
+According to retrieval disruption hypothesis, collaborative inhibition occurs, at least in part because one group member's pursuit of an
+effective retrieval strategy disrupts the use of retrieval strategies that may be more effective for other group members. As a result, some
+group members may not be able to undertake their most effective retrieval strategy. In such an instance they may recall less during the
+group recounting than they would if recalling by themselves.
+
+Experiments were also conducted where the organizational representation of the material to be remembered was more or less likely to be shared
+across group members. It was observed that the more organizational representation (structure and way of representation of content) differ 
+across participants, the more likely it is that different retrieval (recollection) strategies will be effective for different participants. 
+With different organizational representations across group members then collaborative inhibition should appear. On the other hand, with
+similar organizational representation across group members collaborative inhibition should be diminished or disappear.
+
+Members of a large group are more likely to have diverse mnemonic representations than are members of small groups. According to retrieval
+disruption experiment large groups do exhibit greater levels of collaborative inhibition than do small groups.
+
+5.2 Information sampling bias:
+Authors say that retrieval disruption may not be the only reason why participants in a group recounting fail to remember all they are capable
+of remembering. Scholars such as Stasser, Wittenbaum, and their colleagues taught participants about a political candidate and then assembled
+small groups to discuss with each other what they knew about the candidate.
+
+The material provided was constructed in such a way that all participants knew about certain facts about the candidate, but each participant
+also knew several unique facts that is facts that only the participant knew.
+
+The scholars found through repeated experiments that the participants in the group recounting were more likely to recall their shared 
+information than their uniquely held information. The failure to mention unshared information was attributed to a fairly straightfoward 
+sampling bias, i.e a group will fail to discuss an item only if all members fail to mention it.
+
+5.3 Audience tuning:
+goal-dependent adaptation of a message to the audience’s assumed characteristics (typically inner states such as knowledge, expectations, 
+attitudes)
+
+In everyday life people may simply wish to retell a story about the past without trying to be either accurate or complete. This retelling can
+be shaped by the goals of the retelling.
+For example
+    - What will be recounted will differ substantially if the goal of the conversation is to explain the facts than if the goal is simply 
+    to entertain. 
+Scholar Dudukovic and his colleagues found that entertaining retellings contained fewer story events, less sensory references and more
+intrusions than did factual tellings. In comparision to factual tellings the entertaining stories were less accurate, were more likely to be 
+told in the present tense and contained more emotion words and fewer disfluencies.
+
+While retelling speakers will also tune their recollections to what they believe the audience expects to hear.
+============================================================================================================================================
+Content - 6. The effect of conversational remembering on subsequent memory
+============================================================================================================================================
+Remembering is selective. In ordinary conversations, people do not remember all that they are capable of remembering. What people remember is
+almost always a product not just of the original encoding of an event, but also the conversations occuring between the initial encoding and
+an act of remembering.
+
+One person in a conversation can influence another by the virtue of what they say or do not say. When they offer new or misleading
+information, they may implant this information into the memory of their audience. This is called 'social contagion'.
+
+6.1 Social Contagion:
+The spread of a memory from one person to others by means of verbal interaction. In some instances the speaker can impose a new memory onto
+the listener that is a memory of something that the listener did not experience. In other instances, a speaker imposes on the listener an 
+alternative rendering of something that the listener experienced.
+
+It has been consistently found that perceived experts are more successful at imposing their memories onto others than are preceived
+nonexperts.
+
+Social contagion effects are also stronger when -
+    1. The speaker has more power than the listener.
+    2. The speaker is the listener's friend or romantic partner.
+    3. When a listener is more anxious about a negative evaluation or when she or he has a low tendency to avoid social contact
+    4. when there are more speakers suggesting the same memory.
+    5. When a groupd several speakers agrees unanimously on a memory.
+    6. When the biasing information is delivered face-to-face by physically co-present speakers.
+    7. When the biasing information in a multiperson group conversation is produced by the person who dominates the recounting of the memory
+       a.k.a 'the narrator'.
+
+6.2 Warnings and resistance:
+Warnings can reduce the extent to which a speaker can influence a listener's memory. Warnings provided before the misinformation have been
+consistently effective, warnings after the misinformation also reduce social contagion, but under limited conditions.
+
+These warnings can come at a cost.
+For example -
+    prewarnings can have a paradoxical result of increasing social contagion when listeners have a fragile memory and are uncertain of the
+    veracity of their recollections, they may pay careful attention to what a speaker says. This increased attention may lead listeners to
+    form more robust memory of what the speaker says, increasing the chance of false memories for the original material. This effect 
+    represents the opposite of what a warning is intended to accomplish.
+============================================================================================================================================
+Content - 7. Retrieval/Reexposure Effects
+============================================================================================================================================
+What is remembered in a conversation can affect the subsequent memories of conversational particpants not only by implanting new and
+misleading memories, but also by reinforcing some memory and inducing forgetting for others.
+
+7.1 Reinforcing existing memories:
+When a speaker in a conversation repeats something already known to the speaker and/or listeners, by virtue of the repitition, the
+preexisting remembered better than it would if it had not been repeated. The effect is generally stronger for speakers than for listeners.
+
+7.2 Retrieval-induced forgetting:
+When people selectively remember in a conversation they are not only reinforcing existing memories but, by not mentioning other memories,
+they are setting up conditions conducive for forgetting.
+============================================================================================================================================
+Content - 8. Moving beyond a single social interaction
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 9. Motives in conversational remembering and the creation of shared reality
+============================================================================================================================================
+Motives are important not only in shaping what is said, but also for the impact of conversations on subsequent memory.
+The creationg of a shared reality can satify two core human motives -epistemic and relational.
+Epistemic motives refer to the need to achieve a valid and reliable undestanding of the world and to establish what is real.
+Relational motives refer to the need to affiliate and feel connected with others.
+============================================================================================================================================
+Content - 10. Collective Memory
+============================================================================================================================================
+Conversational remembering can be viewed as a social practice that promotes the formation of a collective memory, i.e. memories shared
+across a community that bear on the identity of that community.
+
+Based on work on memory conformity and conversational remembering, memories of particpants in a conversation overlap more after the
+conversation, in part because of reinforcement and in part because of social contagion.
+============================================================================================================================================
+Content - 11. Conclusion
+============================================================================================================================================
+Not needed
