@@ -1,0 +1,112 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Towards a pyschology of collective memory
+By: William Hirst and David Manier
+Paper Link: https://www.academia.edu/1575570/Towards_a_psychology_of_collective_memory
+Paper Submission Date: 1st of January 2008
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understand why and how information is retained as a form of memory during a conversation. What leads to forgetting of 
+a piece of information during a conversation. What is retained after the conversation gets over. How memory is retained regarding a person,
+event or a situation. Do we need to store what was conversed and formed as a conversation between individuals took place in order to remember
+or recollect it later.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Autobiographical memories are individually held memories that bear on the identity of an individual, collective memories are widely held
+memories of community members that bear on the collective identity of the community. If a memory is widely held by members of a community, 
+but has little meaning for the community, then it should be treated as a shared or collected memory, but not a 'collective memory'.
+============================================================================================================================================
+Content - 2. Where are collective memories located?
+============================================================================================================================================
+2.1 Memories "in the world"
+Authors suggest that 'collective memory' is a set of ideas, images and feelings of the past that is best located not in the minds of
+individuals, but in the resources they share.
+
+Kansteiner in 2002 made the point collective memories may not always behave according to the rules that govern individual memory. He made 
+this point when he contrasted the consequences of repressing trauma for individuals and for nations. When individual repress trauma they
+suffer negative consequences on the other hand he opined that nations can repress their collective trauma with impunity.
+
+There is mention of another two types of memories.
+1. Communicative memories.
+2. Cultural memories.
+
+Communicative memories are transmitted between people through communication (example: joke told by one person to another). Scholar Assmann 
+opined that communicative memories possess a limited temporal horizon rarely stretching beyond 100 years. on the other hand cultural
+memories can last for centuries.
+
+Cultural memories occur when communicative memories are transformed into 'objectivized culture'. According to Assmann they are located
+outside of the individual, in the world and are maintained through figures of memories (example: documents, scriptures etc) and 
+institutional communications (example prayers, practices etc).
+
+Its the cultural memory and not the communcative memory that grounds the collective memory of a society.
+
+2.2 Memories "in the individual"
+Some scholars of collective memories descry that it is people memorising and remembering not social resourcs or practice.
+Archives, memorials or commemorations do not memorise or remember people do.
+============================================================================================================================================
+Content - 3. Epidemiological and systems apporaches to collective memory
+============================================================================================================================================
+Epidemiologists study how a disease spreads rapidly across a population, until it reaches epidemic proportions. Scholars who embrace an 
+epidemiological or system approach recognise that the spread of a memory is alos constrained by universal, biological mechanisms, as well as
+social resources and practices.
+============================================================================================================================================
+Content - 4. Reconciling the two apporaches
+============================================================================================================================================
+An epidemiological or systems approach can still treat collective memories as 'shared individual memories' but locate them, not 'in the head'
+or 'in the world', but in the interaction between what is out in the world and what is the head. When collective memory is viewed in this
+manner then the study involves at least two components:
+1. The exploration of the design of the mnemonic or social resources, practices or tools that is what is in the world.
+2. The effectiveness of these intrumentalities which would include biological constrained on mnemonic practices and resources.
+
+4.1 The design process
+Those who asset that collective memories are 'in the world' are interested in what we refer to as 'design proceses'. They want to understand
+the means by whuch sites of memory, mnemonic tools ro mnemonic practices are constructed, appropriated or more generally come into being and 
+how they are subsequently used as means of shaping and reshaping memory.
+
+4.2 Reacting to designs
+For a collective memory to form, society must construct, maintain and over time, reconfigure memory practices and resources, but it is
+equally important for these practices and resourcs to be effective in altering the memories of members of a community.
+
+Shared individual memories do not constitute a collective memory unless they remain stable over time.
+============================================================================================================================================
+Content - 5. Methods of research
+============================================================================================================================================
+Four different methods occupy centre-stage in what can be recognised as a pyschology of collective memory.
+
+Method 1: Surveys
+Surveys can not only function as 'market research' on the effectiveness of various memory practices and mnemonic resources, but can also
+detect important patterns in the distribution of memories across communities.
+
+Method 2: A systems approach
+The scholars that take systems approach seriously insist that researchers should not isolate a particular variable and then study its
+influence on, for instance, the transmission of a memory from one person to another. Rather, given that individual variables are tightly and 
+complexly interconnected, researchers must consider each variable and the relation among variables as part of a complicated system, which
+must be viewed as a whole, and not in parts.
+
+The critical feature of this researach is that it does not manipulate variables as an experimenter mightm but simply observes behaviour in
+complex situations. The resulting models and theories then, incorporate the observed complexity of the setting instead of attempting to chart
+causal relations between a few variables.
+
+Method 3: Moving into the laboratory
+A methodological approach more familiar to experimental pyschologists seeks to control the situaion in which a collective memory might be
+formed as much as possible, that is the research will go from observations about the formation of collective memories 'in the world' to the
+construction of well controlled analogues in the laboratory. In doing so researchers often treat social factors as another variable to
+manipulate, the more controlled the better even if it means that the situation is not a faithful approximation of the 'real world'.
+
+Method 4: Ecologically valid studies
+In order to achieve more ecological validity in the experimental setting, some researchers have lessened the controls somewhat, but
+nevertheless still manipulated variables in a systematic fashion. Design issues may define different conversational conventions, but
+different conventions may have different effects on memory. For instance if a conversation is to promote the formation of a collective memory,
+then unshared information should be introduced into the conversation, so that it can be transmitted to other conversational participants. 
+However it is the norm of conversations for unshared information to emerge infrequently. This norms makes conversations in general less that 
+ideal as a medium for the formation of a collective memory. Scholars Cue et al found that some conversational dynamics lead to exception to this norm.
+
+In particular they found that what was transmitted withing a group recounting and what memories groups converged on, depended on the presence
+or absence of a dominant narrator.
+============================================================================================================================================
+Content - 6. Conclusion
+============================================================================================================================================
+Not Needed
