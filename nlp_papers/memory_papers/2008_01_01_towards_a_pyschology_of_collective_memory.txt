@@ -1,7 +1,7 @@
 ============================================================================================================================================
 Information about the paper
 ============================================================================================================================================
-Paper Name: Towards a pyschology of collective memory
+Paper Name: Towards a psychology of collective memory
 By: William Hirst and David Manier
 Paper Link: https://www.academia.edu/1575570/Towards_a_psychology_of_collective_memory
 Paper Submission Date: 1st of January 2008

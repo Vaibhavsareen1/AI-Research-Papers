@@ -1,0 +1,203 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Collective Memory from a psychological perspective
+By: William Hirst, Alin Coman, Adam D. Brown and Jonathan Koppel
+Paper Link: https://www.academia.edu/909296/Collective_memory_from_a_psychological_perspective
+Paper Submission Date: 1st of January 2008
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understand why and how information is retained as a form of memory during a conversation. What leads to forgetting of 
+a piece of information during a conversation. What is retained after the conversation gets over. How memory is retained regarding a person,
+event or a situation. Do we need to store what was conversed and formed as a conversation between individuals took place in order to remember
+or recollect it later. helped shed a light on how information was retained and forgetten as conversation about it happened between two people.
+How conversations plays a part in remebering and forgetting informations related to incidents the individuals have experienced together, 
+individually or get it know about it prior to a conversations. How Listeners due to Socially Shared Remembering Induced Forgetting forget about
+how certain incidents happened in their past due to the conversations they have with a speaker.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Authors say that although there are intense debates about the meaning of the term collective memory, almost every social scientist agress
+that collective memories are not just shared individual memories, but instead are 'publicly available symbols maintained in the society'.
+When viewing the study of collective memory from this perspective, scholars see commemorations and memorials as publicly available symbols
+that exist in large part to preserve the past. For these scholars an important questions to answer is -
+'How does society construct and maintain these symbols?'
+
+There are psychologists that claim that one would never fully understand human actions and cognitions without considering the internal and
+external factors together, often as components within a complex system.
+
+When it comes to the study of memory, the claim would be that 'in order to understand how a person remembers what he ate last night, a
+researcher needs to consider not only the neural mechanisms underlying memory, but also, for instance, the visual cues in the enviornment,
+such as the pile of dished in the sink.'
+
+The above interactional approach was again captured by a pioneer of the psychological study of memory Fredick Barlett when he likened the
+act of remembering to the action of swinging a tennis racket. Most would agree that this action is not the reappearance of a previous tennis
+stroke stored away in a repository of past tennis strokes but the construction of a tennis stroke out of previous experience with tennis as
+well as current situational factors, such as the position of the sun, the opponent's posture, the coniditions of the court etc.
+
+For Fredrick Bartlett remembering is the act of reconstructing the past out of both what is in the head and what is outside in the world.
+It is not the retrieval of stored replicas of the past.
+
+Althoug Fredick Bartlett was not explicit but it would appead that he felt that memories were not in the head in any specific way, but
+rather in the interaction between what is in the head, the schema formed of past experience and what is in the world.
+
+Memories are products of remembering and not stored representations of the past. They are not retrieved as a memory might be on a computer
+but built out of the interactions between what is beneath the surface of the skin and the world beyond the surface.
+
+Psychologists have long known that the more one knows about something, the better one remembers new materials that builds on this knowledge
+As an example chess masters will remember a chess position better than a novice, not because they have a better memory than a novice, but
+because they use their knowledge of chess to guide their remembering. They know that certain pieces are positioned according to attack or
+defence strategies and then use this knowledge when memorizing and remembering the position. Their excellent performance could not be obtained
+if they cannot use their knowledge and when asked to reproduce a chess position consisting of randomly placed pieces, their performance is no
+better than that of novices.
+
+In case of expert bartenders unlike chess masters, to effect their extraordinary performance, they do not rely solely on their knowledge of
+drinks, rather they reach beyond what is 'in their heads' and turn to the outside world, restructuring it so that the world 'remembers' the 
+drinks for them at least in part.
+
+When novice bartenders are asked to remember a list of drinks, they merely repeat the drink order to 
+themselves. If the order is long and complicated, they quickly forget the order, on the other hand, expert bartenders use the distinctive
+shape of many drinking glasses to aid their memory. When they receive a drink order, they place the appropriate glass onto the bar as the
+order is given. They physical presence of the glass as they subsequently fill the orders effectively guide their memory. the correspondence
+between glass shapes and drinks is not one to one, but the presence of different shapes delimits the range of what needs to be remembered, 
+and a result, expert bartenders find it easier to remember even a complicated drink order. Their memory per se has not gotten better rather 
+the restructured world makes it easier for them to remember successfully.
+
+When memories are viewed as a product of the interaction between what is in the head and what is in the world then notion of collective
+memories as 'shared individual memories' might seem less wrong-headed.
+
+When it comes to the bartender example an individual restructures the world so that the individual can better remember. When it comes to 
+collective memory, society restructures the world so that society better remembers. For example Americans built the Lincoln Memorial so that
+Americans would never forget Lincoln and more specifically that they would remember Lincoln as a god like figure.
+
+The world is full of memorials and commemorations. Some of these memorials and commemorations effectively shape the collective memory of a 
+mnemonic community, whereas others remain ineffective.
+
+Authors say that scholars of collective memory need to know why some mnemonic resources effectively promote the formation and alteration of 
+collective memories while others do not.
+
+The answer to these questions lies in part in recognizing that memorials can potentially change the memories of visitors one at a time, and
+thereby collectively all those who visit. If the change in individual memory is substantial and similar across visitors, a memorial can
+effectively shape the collective memory. On the other hand if the change is minimal the effect is minimal.
+
+Aleida Assmannn made a point by stating that 'Collective memories must have a function for the society.' 
+============================================================================================================================================
+Content - 2. Conversations and Collective Memory
+============================================================================================================================================
+In many instances, conversations can serve as a decisive mnemonic resource for the spread of a memory across a group, even a group as large 
+as a nation. Conversations may promote the formation of a collective memory as much as, if not more than, a textbook, a memorial, or a
+commemoration. For instance, Lithuanians of Lithuaninan descent know their nation's history not through the Russian textbook they use in 
+their school, but through the many informal conversations they have with acquaintances, friends and relatives.
+
+The elemental influence of a speaker on a listener could extend to large communities. The influence of speakers can become widespread if they
+address a large number of people. Moreover a chain of influences can also be set up, with one speaker reshaping the memory of a listener,
+who in turn becomes a speaker who can influence another listener. This sequence of conversational interactions can multiply in complex ways
+and may after numerous conversations, lead to a convergence onto a shared community-held rendering.
+============================================================================================================================================
+Content - 3. Remembering Together: Altering Existing Memories and Implanting New Ones 
+============================================================================================================================================
+3.1 Conversations Promote Social Contagion and Memory Implantation
+Social contagion refers to the spread of a memory either true or false from one person to another through social interaction. 
+
+scholars Wright et al in a representative study of social contagion in 2000 examined in a naturalistic context, how members of conversational 
+dyads can shape each other's memory for material they each viewed. Participant swere randomly assigned to complete the task individually or
+as a pair.
+
+1.Dyad Condition:
+Both members of a pair studied a picture. the pictures they saw differed slightly, though the pair was led to believe they were studying the
+same picture. The pair was asked to individually study the pictures and jointly recall them, and then subsequently recall what they 
+remembered from the original image.
+
+2.Individual Condition:
+As individual, rather than pairs, was asked to separately study and then recall the image.
+
+Wright et al. revealed that false recognitions for the critical items were more prevalent in the dyad condition than the individual condition.
+The false recognitions in the join recall condition, after all represented shared renderings of the pictures.
+
+3.2 The Effects of Conversational Dynamics and the Characteristics of Conversational Participants.
+Not all conversations are equally effective in reshaping the memories of their participants. Nor for that matter, are all conversational
+participants equally likely to induce social contagion in their listeners. 
+
+3.2.1 The Role of the Dominant Narrator
+In the studies of scholars Hirst and Manier have focused on conversations of families of four (mother, father and two children) about their
+shared family experiences. They have found that conversational participants tend to naturally take on contrasting and complimentary roles.
+Identifying three roles in particular: Narrators, Mentors and Monitors.
+
+Narrators further the narratice of the episode at issue; mentors aid narrators by prompting them to further their narratives and provide more 
+details; and monitors evaluate whether the narrative, as told by the narrator, was accurate and complete.
+
+Narrators control to varying degrees, the discussion on any given topic, it is thus their version of events that emerges most prominently in
+conversational remembering. example one of the conversations in Hirst and Manier's research involved a son's high school graduation present. 
+The son felt aggrieved because he believed he had promised a stereo. In this conversation, he took on the Narrator role, because he was intent
+on getting his account of the episode through.
+
+Narrators also introduce unshared memories as opposed to shared memories, into conversational remembering more frequently than did non narrators.
+Unshared memories are memories held by only one member of a group, while shared memories are those held by two or more members. consistent 
+with an information sampling bias Hirstand Manier found a clear preference for individuals to refer to shared memories, while avoiding those 
+that only they held. Narrators were the exception to this rule.
+
+Scholar Cuc in its study found that the presence of a dominant narrator facilated the formation of a collective memory, as these individual
+were successful in transmitting their contributions to the conversations into the group's subsequent collective memory.
+
+The dominant narrator also influenced not just whether a collective memory formed, but the content of that collective memory. Just as dominant
+narrators are particularly influential in spreading memories across a group during conversational remembering, the same is true of those
+possessing expertise on the issue at hand. 
+
+Another study was conducted to understand the relationship between narrators and experts. In parsing the results of the study, two main 
+finding emerged:
+1. Expertise is independant from narratorship, that is even if dominant narrators were not experts, they influenced the other group members 
+   to a great extent.
+2. Narratorship had stronger predictive value than the perceived status of expertise in how much the other group members were contaminated 
+   with false memories.
+
+In addition, Narrators, influence was not simply based on how much they spoke, but how much they spoke in relatiuon to how much others were 
+speaking. Therefore by speaking a disproportionate amount, the Narrator was able to call attention to what she says and had an advantage in
+crafting the narrative.
+============================================================================================================================================
+Content - 4. Forgetting Together: Induced Forgetting as a Means of Forming a Collective
+============================================================================================================================================
+Researchers see that there is a growing body of research revealing that social remembering has the power to implant new memories, but could 
+the converse by true as well? Questiont to answer:
+1. Could conversations about the past serve as vehicles promoting forgetting as well as remembering?
+2. Could the selective nature of an act of remembering shape memories that reflect both what is left unmentioned by the conversation, as well
+   what was said in it?
+
+The reason why people might not mention all that they know in a conversation are multifold: from deceiving the audience to avoiding somehting
+stressful and socially taboo. They could also simply fail to access memories in the context od specific conversations.
+
+4.1 The Effect of Selective Remembering on Subsequent Forgetting in individuals
+One mechanism that might underlie the formation of collective memories through forgetting is retrival-induced forgetting (RIF). Retrieval-
+induced forgetting is a memory phenomenon that can reliably be found when a person retrieves information in a selective manner. According 
+together RIF framework when people return memories, other related memories automatically come to mind. In order for the retrieval to be 
+successful, the rememberer must inhibit these related competing memories. As this inhibition can linger over time, the remeberer will have
+difficulty recalling the related competing memories in subsequent tests of memory.
+
+4.2 Social Dynamics and Retrieval-Induced Forgetting
+Scholar Cuc et al in 2007 modified their Remembering Induced Framework (RIF) paradigm to investigate how the RIF phenomenon might bear on
+remembering in a social context. specifically they observed RIF in a free flowing conversations.
+
+The scholars found that the listener may not overtly and selectively recount a memory in a conversation, the speaker does, But the listener
+nevertheless demonstrates RIF or what scholar Cuc calls Socially-Shared RIF (SS-RIF). 
+
+Scholar Cuc et al reasoned that listeners demonstrate SS-RIF because they retrieve concurrently with the speaker, even if covertly, that is 
+their findings suggest that even something as mundane as a conversation can reshape a memory by inducing speakers and listeners alike to
+forget in similar ways and in doing so, promote the formation of collective memory.
+
+In sum, scholar Cuc and his colleagures found that listening to a speaker not only enhances their memory for the information introduced by
+the speaker, but it also leads to increased probability of forgetting for information related to what the speaker mentions.
+
+Scholar Cuc et al focused on instances when both speaker and listener held a memory for the same event, however a speaker can also provoke
+a listener to remember, overtly or covertly, even if the two do not share the same memories. For instance, a speaker could recall a traffic
+accident and her selective recollection could evoke in a listener hisown memories of a different traffic accident. Moreover, how a speaker
+recalls her traffic accident might shape how and what the listener covertly remembers. If a speaker recollects the courtesy of the ambulance 
+personnel, but fails to recollect the helpfulness of the passers-by, a listener might concurrently, but covertly, retrieve the attitude of
+the ambulance personnel in his own accident, but may fail, even covertly, how the passers-by reacted. If RIF is a consequence of selective 
+remembering then both speaker and listener should have more difficulty subsequently recollecting the role passers-by played in their distinct
+accidents thant they do recalling the courtesy of the ambulance personnel.
+
+A conversation, then may induce participants to forget in similar ways even when memories differ.
+============================================================================================================================================
+Content - 5. Conclusion
+============================================================================================================================================
+Not needed
