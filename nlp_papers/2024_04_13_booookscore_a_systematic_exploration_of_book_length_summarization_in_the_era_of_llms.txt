@@ -1,0 +1,222 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Bookscore: A systematic exploration of book length summarization in the era of LLMs
+By: Yapei Chang, Kyle Lo, Tanya Goyal and Mohit Iyyer
+Paper Link: https://arxiv.org/pdf/2310.00785
+Paper Submission Date: 13th of April 2024
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understand why and how information is retained as a form of memory during a conversation. What leads to forgetting of 
+a piece of information during a conversation. What is retained after the conversation gets over. How memory is retained regarding a person,
+event or a situation. Do we need to store what was conversed and formed as a conversation between individuals took place in order to remember
+or recollect it later. helped shed a light on how information was retained and forgetten as conversation about it happened between two people.
+How conversations plays a part in remebering and forgetting informations related to incidents the individuals have experienced together, 
+individually or get it know about it prior to a conversations. How Listeners due to Socially Shared Remembering Induced Forgetting forget about
+how certain incidents happened in their past due to the conversations they have with a speaker.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Summaries written by large language models (LLMs) are preferred over those written by humans and this has lead researchers to pronouce the 
+death of summarization research. Authors say that as with most prior work on summarization, the input documents in the study are relatively
+short (less than 10,000 tokens)
+
+Widespread adoption of LLMs outside of research community has driven the development of a more ambitious task of summarizing book length 
+documents. Any text with more than 100K tokens for  now is considered to be a 'book-length document'. As these documents exceed the context
+of LLMs of the current age and summarizing them via prompt based approaches necessitates heuristics to chunk the input, process each chunk
+and then combine and compress the outputs.
+
+Authors say that 'despite the promise that LLMs hold for long context task, the research community still lacks a principled and systematic 
+apporach to evaluate their capabilities on book-length summarization. Authors in the paper identify three open challenges with the current
+evaluation:
+1. Data Contamination: Benchmarks which are used to evaluate summarizations are in the pretraining data of modern LLMs example: 'BookSum'.
+2. Unexplored error distribution: Most prior summarization research centers around short source documents and fail to capture coherence
+   errors that are exacerated by the 'chunk and combined' book-length setting
+3. A lack of reliable automatic metric which requires careful design and validation against human annotations.
+
+Contribution of authors through this paper
+1.1 A protocol for evaluating coherence in book length summarization.
+To mitigate the impact of contamination authors design evaluation framework around the use of newly published books. Authors propose a 
+reference free protocol that leverages human annotations of the coherence of LLMs generated summaries under different prompting strategies.
+
+Author validate the protocol by collecting 1193 span level human annotations on GPT-4 generated summaries of a carefully curated set of 100
+recently published books used two prompting strategies 'hierarchial merging' and 'incremental updating'. The annotations produced are
+categorised into eight frequent error types.
+
+1.2 An automatic metric -BOOOOKSCORE- to access summary coherence
+Authors follow recent work by developing an LLM based evaluation metric called BOOOOKSCORE that identifies and explains instances of any of
+their eight established coherence erros in a given summary. Human validation shows that BOOOOKSCORE annotations are almost as reliable as
+those of human annotators. As this metric does not rely on gold summaries, it can easily be used to evaluate new LLM summaries on any collection
+of newly published books, ensuring that the metric will remain meaningful for the LLMs of the future.
+
+1.3 A systematic evaluation of different LLMS using BOOOOKSCORE
+Authors use BOOOOKSCORE to evaluate the impact of several critical design decisions on the coherence of generated summaries. Authors findings
+include:
+1.3.1 Hierarchial merging generally results in more coherent summaries but reduced level of detail compared to incremental updating.
+1.3.2 GPT-4 and Claude 2 produce the most coherent summaries while LlaMa 2 is substantially worse and fails to follow instructions.
+1.3.3 Increasing the chunk size does not improve the hierarchial merging but does substantially benefit Claude 2 when using incremental 
+      updating
+1.3.4 Summary level preference judgments are highly subjective and do not correlate with BOOOOKSCORE.
+============================================================================================================================================
+Content - 2. Background: summarizing book length texts with LLMs
+============================================================================================================================================
+Authors have introduced two strategies and they are:
+1. Hierarchial merging
+2. incremental updating
+In both strategies the length of the input document necessitates first dividing it into smaller chunks and then repeatedly merging, updating
+and/or compressing chunk level partial summaries.
+
+Authors say that while neithr strategy is well explored by published research, hierarchial mering method essentially adapts zero shot prompting
+while incremental updating resembles chain of density prompting for short documentation summarization.
+Both strategies assume an LLM with context window size W is used to summarize an input document D whose length L >> W.
+
+2.1 Hierarchial merging:
+Jeff Wu proposes a method in which an LLM is fine tuned via reinforcement learning to summarize each chunk and then hierarchially merge the chunk
+level summaries unit one summary is lef tof the entire input document. This method has since been simplified into zero-shot prompting strategy 
+without further training.
+
+Hierarchial merging three unique types of prompts to work:
+2.1.1 Summarizing an input chunk
+2.1.2 Merging chunk level summaries
+2.1.3 Merging summaries with added context from previously generated merged summaries
+
+The total length of each prompt and its associated inputs is less than W - Gl where Gl is a hyperparameter controlling summary length that variates
+depending upon the level 1. Summaries are recursively merged until only one summary remains.
+
+2.2 incremental updating:
+It is possible that since hierarchial merging mecessitates summarizing portions of the input document without complete context, it may introduce
+coherence errors. For example in the first level chunks towards the end of the book will be summarized without knowledge of what came before, which 
+can lead to incoherent summaries especially for non linear or multi-perspective narratives. Authors thus propose incremental updating.
+
+incremental updating iterated through each chunk in order while continously updating a global summaries with salient information. While this method
+may be better able to handle chunk dependencies that n hierarchial merging, it requires more complicated prompts for
+2.2.1 Summarizing an input chunk
+2.2.2 Updating the global summary with information from the current chunk
+2.2.3 Compressing the global summary when it exceeds the maximum summary length
+============================================================================================================================================
+Content - 3. Evaluating coherence of book summaries
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. BOOOOKSCORE: An automatic evaluation metric
+============================================================================================================================================
+Since human evaluation of summary coherence is not scalable due to the high financial and time cost authors develop an automatic
+metric called BOOOOKSCORE that prompts an LLM to identify instances of the eight error types authors have identified.
+
+4.1 Implementing BOOOOKSCORE
+BOOOOKSCORE automatically measures the coherence of summaries generated by a book length summarization system via few shot prompting.
+BOOOOKSCORE is both source free and reference free.
+
+Specification:
+Assuming we have a summary S consisting of sentences s1, s2, ..., sn. Authors develop a few shot error identification prompt E that instructs
+the LLM to identify any instances of one of the eight specified error types in a given sentence si of the summary. Concretely we iterate over
+each sentence si in the summary, feeding the prompt E, full summary S, and target sentences si at each step.
+There are two acceptable outputs at each step:
+1. No error is found and the LLM outputs 'No confusion'
+2. An error(s) is identified and the LLM is asked to generate a corresponding question and associated error type.
+
+BOOOOKSCORE(S) = 1/n * sum(LLM(E, S, si) == No confusion)
+
+When computing BOOOOKSCORE authors consider each sentence as a singular unit of confusion, rather than each of the questions associated with
+that sentence. As both humans and LLMs occasionally ask multiple questions that essentially target the same issue with in a given sentence.
+============================================================================================================================================
+Content - 5. systematic evaluation of LLMs
+============================================================================================================================================
+Using BOOOOKSCORE authors evaluate different LLMs on summary coherence.
+
+Experimental Setup:
+Chunk size is set to 2048 and maximum summary length Gn is set to 900, decoding temperature is set to 0.5 and p = 1 for ancestral sampling.
+Authors use identical prompts where it is possible 
+
+They found that 
+5.1 incremental summaries are almost always less coherent than their hierarchial counterparts.
+This maybe because incremental updating makes the LLMs follow a more complex instruction path when compared to hierarchial merging.
+
+5.2 incremental summarization benefits from increased chunk size
+
+5.3 High coherence does not necessarily correlate with human preferences.
+============================================================================================================================================
+Content - 6 Limitations
+============================================================================================================================================
+Authors find the following limitations of their approach.
+6.1 Authors error taxonomy is derived just from errors made by GPT-4.
+6.2 BOOOOKSCORE can be expensive to run, even though it is expensive it is still cheaper than human evaluations
+6.3 BOOOOKSCORE does not account for the relative importance of different error types as it does not provide weights to different eror types.
+6.4 There is no validation of recall.
+============================================================================================================================================
+Content - 7 Related work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 8 Conclusion
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - Appendix
+============================================================================================================================================
+A.1 Hierarchial merging
+1. Obtain summaries at the base level l = 0 by summarizing each chunk.
+2. Obtain summaries for the first level l = 1 by prompting the LLM to merge as many consecutive level-0 summaries si, si+1, . . . as possible
+   such that the total length of the merging prompt, the selected summaries, and the prior context (if there exists a preceding summary at 
+   the same level) is less than W −Gl, where Gl is a hyperparameter controlling summary length that varies depending on the level l.
+3. Repeat the previous step recursively until we are left with a single summary for the book.
+
+A.2 Incremental updating
+1. Feed the summarization prompt into the LLM along with the first chunk c1 to obtain a summary of the first chunk, which initializes the
+   global summary g1
+2. Now, provide the LLM with the updating prompt, the next chunk c2, and the current global summary g1. The model is prompted to updating 
+   the global summary to g2 with information from the current chunk.
+3. Iterate through the remaining chunks. If gi exceeds the maximum summary length Gn, call the compression prompt to compress gi to fit
+   within the length limit
+
+A.3 Compression
+Compression step is required for incremental updating. Through the experiments authors have observed that as the model processes texts through
+incremental updating, it consistently adds more information to the running summary instead of removing things. Even with an updating prompt the
+summary often surpasses the target length as removing content from it is not in the model's natural inclination, Thus a separate prompt is needed
+for the model to condense the summary. However in hierarchial summarization condensatoin is not required. The merge step is less likely to run over
+the summary limit since it does not have to work with a pre existing runnning summary. If the summaries generated during hierarchial merging go
+over the summary limit, simply asking the model to regenerate up to a fixed number of times would suffice.
+
+Error Taxanomy
+Error 1: Entity omission 
+Definition: An entity (e.g., person, object, place) is mentioned in the summary, but key context or details are missing or unclear.
+Span: A mysterious man introduces Proctor to ”Arrivalism.”
+Question: Who is this mysterious man?
+
+Error 2: Event omission
+Definition: An event is mentioned in the summary, but key details are missing or unclear.
+Span: During a mission to find Caeli, Proctor is captured by watchmen
+while Thea escapes.
+Question: What happened to Caeli?
+
+Error 3: Causal omission 
+Definition: A reason or motivation is missing or under-explained.
+Span: Proctor seeks answers from... Callista about the investigation.
+Question: Why would Callista know something about the investigation?
+
+Error 4: Discontinuity 
+Definition: An interruption in the flow of the narrative such as sudden jumps in time or perspective.
+Span: In the new settlement, Thea adjusts to her life, working hard and finding solace in nature.
+Question: Why the shift to Thea’s perspective?
+
+Error 5: Salience
+Definition: Inclusion of details that do not contribute to the main plot.
+Span: His father... flees, resulting in a chaotic chase on the pier.
+Question: What is the significance of this incident?
+
+Error 6: Language
+Definition: Spelling or grammar issues; ambiguous wording.
+Span: Despite her love for him, Deborah is heartbroken by his decision.
+Question: Why is the preposition ”Despite” used here when she is, in fact, heartbroken because of her love for him?
+
+Error 7: Inconsistency
+Definition: A discrepancy or contradiction within a story’s plot, character development, or themes.
+Span: In a farewell, Proctor marries his brother Malcolm to Cynthia and says goodbye to his loved ones.
+Question: If Cynthia is his mother and Malcolm is his brother, how can a mother and son marry?
+
+Error 8: Duplication 
+Definition: Redundant repetition of similar information.
+Span 1: Proctor... deals with students and school issues, seeking help from Callista to fund a roof replacement.
+Span 2: Proctor’s life continues as he... deals with school issues, such as funding for a roof replacement
+Question: Why does the same information appear twice?
