@@ -8,13 +8,8 @@ Paper Submission Date: 13th of April 2024
 ============================================================================================================================================
 Why this paper?
 ============================================================================================================================================
-This paper was used to understand why and how information is retained as a form of memory during a conversation. What leads to forgetting of 
-a piece of information during a conversation. What is retained after the conversation gets over. How memory is retained regarding a person,
-event or a situation. Do we need to store what was conversed and formed as a conversation between individuals took place in order to remember
-or recollect it later. helped shed a light on how information was retained and forgetten as conversation about it happened between two people.
-How conversations plays a part in remebering and forgetting informations related to incidents the individuals have experienced together, 
-individually or get it know about it prior to a conversations. How Listeners due to Socially Shared Remembering Induced Forgetting forget about
-how certain incidents happened in their past due to the conversations they have with a speaker.
+This paper was used to understand if there is a technique that can be used to go through long texts to extract information from them. The 
+paper provides methodologies in order to summarize long texts which can be used to achieve success in other NLP tasks. 
 ============================================================================================================================================
 Content - 1. Introduction
 ============================================================================================================================================
