@@ -1,0 +1,116 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: MemoChat: Tuning LLMs to use memos for consistent long range open domain conversation
+By: Junru Lu, Siyu An, Mingbao Lin, Gabriele Pergola, Yulan He, Di Yin, Xing Sun and Yunsheng Wu
+Paper Link: https://arxiv.org/pdf/2308.08239
+Paper Submission Date: 23rd August 2024
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understand how can memory be added to a LLM to allow multi turn long open ended conversation. This paper introduces
+a new methology such as memo building -> memo retrieval -> chat with memo. This approach has provided me anothe apporach towards storage
+of conversation for fast retrieval.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+LLMs have demonstrated an enhanced ability to synchronize effectively with human cognitive processes and consequently have served as a 
+foundation towards creating human like conversation dialogues.
+
+Long range open domain conversation that involve diverse topics presents a challenge for conventional methods as they struggle to effectively 
+address the issue of retaining contextual coherence over long stretches of discourse.
+
+Few of the approaches introduced previously to solve this issue include
+1.1 Expanding the inputs of text window where LLMs with text window that is 600 times longer than its original pretraining version.
+1.2 Resort to additional memories for tracking the history of conversations.
+    For example MPC proposed in the paper  (Prompted LLMs as chatbot modules for long open domain conversation by lee 2023) to regularly store
+    persona summaries of recent conversations as history, then use new user query Q to retrieve the top-K history D via an exteranl DPR
+    retriever and finally generating a new responsed based on both Q and D. 
+
+Despite the advantage in retaining infinite contextual inputs, compared with text window extension, memory mechanism may cause accumulation
+error during the retrieval of past evidence.
+
+Authors were interested to solely utilize LLMS to power memory retention. The authors in this paper propose 'memo-equipped pipeline' with the
+aim for guiding LLMs to use simple on the fly memos for mainitaining consistent long range open domain conversations. The authors based their
+approach on the concept of 'memorization retrieval response' loops within the context of long range open domain conversations.
+============================================================================================================================================
+Content - 2. Related work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 3. Methodology
+============================================================================================================================================
+3.1 Formulation
+Authors start with formulating the long range open domain conversations as Generative Question Answering (GQA) in which a chatbot is expected
+to generate an answer y_hat = argmax_y p(Y|x^q, x^h), given previous conversation history x^h, and current user query x^q. To improve the 
+response consistency of y_hat, this paper takes an step forward and proposed to decompose the long range open domain conversation as a three
+stage 'memorization-retrieval-response' loop, intending to retrieve query related evidence x^h from structured memo x^m, which is modeled as 
+x^m = f(x^h), x^h = g(x^q, x^m), with f(*) and g(*) as the memo build up and retrieval functions respectively.
+
+3.2 MemoChat
+The memochat approach will automatically build and updated a structured on-the-fly memo, storing past dialogues in categories. The retrieval
+is conducted over all recordings according to their topics and summaries. By allowing the llms to reorganize the dialogue histories according
+to different topics, summarize the partial dialogue faithfully, and retrieve one or more query related evidences quickly according to the 
+authors 'MemoChat becomes a simple yet effectice pipeline to guide chatbots to generate consistent responses.
+
+A basic example would be taking current user query and response update the structured memo once the turn has finished (the memo could be a 
+table or a dictionary which would store a topic against which summary about conversation related to the topic takes place and all dialogues
+related to the topics are stored) and once the turn gets over the query is taken from the user and searched in the updated memo to see if 
+topics similar to the current query exists otherwise create a new record for the current query.
+
+3.2 Instruction structure
+'Memorization-retrieval-response' mechanism stores the past dialogues in memo x^m, recalls query related evidences x^h` from memo and generate
+response y_hat based on retrieved evidences. Different from literatures requiring additional complex modules, authors reorganize the dialogue
+histories into structured on-the-fly memos such that the basic LLM powered chatbots can simultaneously  handle the memo.
+
+Authors thus develop three instructions for each stage (memo-building/memo-writing, memo-retrieval chat-with-memo). Overall all instructions
+follow similar structure: 
+1. Description of each stage task
+    This part will give an overview of the task that the LLM needs to perform also add guard rails for the LLM to work in.
+2. Main body of task oriented inputs
+    This part will give information about the task that the LLM needs to understand and memorize.
+3. Exaplanation of each task
+    Instructions in an ordered manner that the LLM needs to follow in order to reach the final desired output.
+
+The combination of the three serves as the input prompt to the LLM and ground truth answers are provided for fine tuning these fine tuning
+examples would contain the output which the final output for the current should look like and adhere to.
+
+Memo Writiing:
+The task asks the LLM to read a task conversation, paritition the conversation based on all possible topics, write short summaries for
+every sub dialogues, and write the above results to the memo in a JSON format with each instance including keys of 'topic', 'summary' 
+and 'dialogues'. The authors consolidate the task explanantion with Chain-of-Thought (CoT) and In Context Learning (ICL).
+
+Memo Retrieval:
+The task asks the LLM to read a user query and a series of topic options, select out one or more related options and 'none of the others' 
+option and  report option ID with a special format. To support a fast implementation authors retrieve related contents only upon the 'topic'
+and 'summaries' from the on-the-fly memo. 
+
+Chat with Memo:
+The task feeds the latest query, prefixed with retrieved evidences and recent dialogues to the LLM. With these related evidences the LLM 
+can produce more consistent response even in the long range open domain conversations.
+
+3.3 Dataset Reconstruction
+Authors fine tune the LLMs on aggregation of multiple dataset.
+
+
+3.4 Challenges
+3.4.1 Prompt Copy
+    LLMS found a special shortcut to directly copy format examples in the prompts as the answer. To avoid this authors suggest to use dummy
+    variables to replace any numerical value to avoid possible answer leaking.
+
+3.4.2 Catastrophic Forgetting
+    The LLMs lean towards generating early stopped or repeated answers if thhe volume of 'Chat with Memo' is less thant 'Memo Writing' or
+    'Memo Retrieval'. The authors encourage a balanced volume by mixing with certain amount of dialogue corpus to maintain the
+    chatting ability.
+
+3.4.3 Prompt Misplacement
+    The LLMs performance degrade when swapping the input order of the main body of task-oriented inputs and explanation of each task. Task
+    explanation attached at the end is crucial for LLMs to understand the instruction better.
+============================================================================================================================================
+Content - 4. Experiments
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Conclusion
+============================================================================================================================================
+Not needed
