@@ -1,0 +1,90 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Retrieval Augmented Generation for knowledge intensive nlp tasks
+By: Aleksandra Piktus, Fabio Petroni, Vladmir Karapukhin et al
+Paper Link: https://arxiv.org/pdf/2005.11401
+Paper Submission Date: 1st of August 2023
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper was used to understand whether instruct based LLMs are to be used rather than plain generative transformer based models when we 
+want to produce reproducible results in the Question Answer format.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Pre trained neural language models have been shown to learn a substantial amount of in-depth knowledge from data. They can do so without any 
+access to an external memory, as a parameterized implicit knowledge base. Such models do have downsides. That is they cannot easily expand or
+revise their memory, can't straightforwardly provide insight into their predictions, and may produce 'hallucinations'.
+
+Hybrid models that combine parametric and non parametric memory can address some of these issues because knowledge can be directly revised and
+expanded and accessed knowledge can be inspected and interpreted.
+
+Authors combine pre-trained parameteric memory language generation models with a non parametric memory through a general purpose fine tuning 
+approach which the authors refer to as 'Retrieval Augemented Generation (RAG)'. 
+Authors use a pre trained seq2seq transformer and a non parametric memory which is a dense vector matrix using a pretrained neural retriever.
+
+The retriever provides latent documents conditioned on the input and the seq2seq model conditions on these latent documents together with the
+input to generate the output.
+
+Authors take two approaches where they marginalize the latent documents with a top k approximation on
+1.1 per output basis (assuming the same document is responsible for all tokens)
+1.2 per token basis (assuming different documents are responsible for different tokens)
+============================================================================================================================================
+Content - 2. Methods
+============================================================================================================================================
+Authors explore RAG models which use the input sequence x to retrieve text documents z and use them as additional context when generating the
+target sequence y. The RAG model introduced in this paper relies on two crucial components
+1. A retriever p_n(z|x) with parameters n that returns top k truncated distribution over text passages given a query x
+2. A generator p_0(y_i|x, z, y1->i-1) parameterized by 0 that generates current token bases on a context of the previous i-1 tokens, y1->i-1 
+the original input x and a retrieved passage z.
+
+The authors train the retriever and generator in an end to end approach where the retrieved documents are treated as latent variables.
+The authors propose two models:
+1.RAG-Sequence which uses the same document to predict each target token.
+2.RAG-Token which predicts each target token based on a different document.
+
+2.1 Models
+2.1.1 RAG-Sequence Model:
+The RAG sequence model uses the same retrieved document to generated the complete sequence. Technically it treats the retrieved document as a
+single latent variable that is marginalized to get the seq2seq probability p(y|x) via a top k approximation. The top K documents are retrieved
+using the retriever and the generator produces the output sequence probability for each document.
+
+2.1.2 RAG-Token Model:
+RAG Token model we can draw a different latent document for each target token and marginalized. This allows the generator to choose content from
+several documents when producing an answer. The top K documents are retrieved using the retriever and then the generator produces a distribution 
+for the next output token for each document, before marginalizing and repeating the process with the following output token.
+
+2.2 Retriever
+The retrieval component p_n(z|x) is based on dense passage retriever (DPR)
+d(z) = BERT_d(z), q(x) = BERT_q(x), where d(z) is a dense representation of a document produced by a BERT_BASE document encoder and q(x) a query
+representation produced by a query encoder also based on BERT_BASE.
+
+Calculating top-k(p_n(.|x)), the list of k documents z with highest prior probability is a Maximum Inner Product Search (MIPS) problem, which
+can be approximately solved in sub linear time.
+
+2.3 Generator
+The generator component could be modelled using any encoder-decoder. To combine the input x with the retrieved content z when generating the
+authors simply concatenates both of them.
+
+2.4 Training
+Authors jointly train the retriever and the generator components without any direct supervision on what document should be retrieved.
+
+2.5 Decoding
+Not needed
+============================================================================================================================================
+Content - 3. Experiments
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Results
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Related Work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 6. Discussion
+============================================================================================================================================
+Not needed
