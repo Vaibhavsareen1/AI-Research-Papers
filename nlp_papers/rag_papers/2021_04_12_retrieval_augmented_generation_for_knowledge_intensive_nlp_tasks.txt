@@ -4,12 +4,12 @@ Information about the paper
 Paper Name: Retrieval Augmented Generation for knowledge intensive nlp tasks
 By: Aleksandra Piktus, Fabio Petroni, Vladmir Karapukhin et al
 Paper Link: https://arxiv.org/pdf/2005.11401
-Paper Submission Date: 1st of August 2023
+Paper Submission Date: 12th of April 2021
 ============================================================================================================================================
 Why this paper?
 ============================================================================================================================================
-This paper was used to understand whether instruct based LLMs are to be used rather than plain generative transformer based models when we 
-want to produce reproducible results in the Question Answer format.
+This paper was used to understand how to reference new information and generate an output conditioned on it using a pretrained LLM.
+This paper provides a really good technique which can be followed to use LLMs along with new information without training the LLMs on it.
 ============================================================================================================================================
 Content - 1. Introduction
 ============================================================================================================================================
