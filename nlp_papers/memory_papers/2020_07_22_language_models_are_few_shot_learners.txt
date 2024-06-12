@@ -8,8 +8,9 @@ Paper Submission Date: 22nd of July 2020
 ============================================================================================================================================
 Why this paper?
 ============================================================================================================================================
-This paper was used to understand how to reference new information and generate an output conditioned on it using a pretrained LLM.
-This paper provides a really good technique which can be followed to use LLMs along with new information without training the LLMs on it.
+This paper was used to understand concepts such as zero shot, one shot, few shot prompt tuning to get the desired output. The paper also 
+provides insights into how training LLM models on chain of thought datasets help in reasoning capabilities of the model. The training of
+model on CoT datasets also improve the capabilities of the llm in terms of remembering over long context.
 ============================================================================================================================================
 Content - 1. Introduction
 ============================================================================================================================================
