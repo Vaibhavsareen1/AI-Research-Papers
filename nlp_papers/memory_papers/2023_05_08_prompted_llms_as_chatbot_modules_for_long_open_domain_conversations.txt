@@ -1,0 +1,68 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Prompted LLMs as chatbot modules for long open domain conversations
+By: Gibbeum Lee, Volker Hartmann, Jongho Park, Dimitris Papailiopoulos and Kangwook Lee
+Paper Link: https://arxiv.org/pdf/2305.04533
+Paper Submission Date: 8th of May 2023
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+To understand how to add memory to main long conversations this paper was referenced as it gives insight on one of the ways in which LLMs
+can be used in order to add the concept of memory for a conversation without fine tuning the LLMs on dataset containing long conversations
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Authors contribute a novel approach for creating high-quality conversational agents without the need for fine-tuning. MPC (Modular Prompted
+Chatbot) utilizes open sourced pre trained language models to increase the flexibility of designing the modules of an open domain chatbot.
+The approach enhances multiple conversational capabilities by utilizing a modularised agent that incorporates LLMs with prompt techniques 
+such as few shot in-context learning and chain of thought reasoning.
+============================================================================================================================================
+Content - 2. Related Work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 3. Modular Prompted Chatbot
+============================================================================================================================================
+At the start of a conversation a pre defined persona is stored in the memory pool. WHen a user sends a message the clarifier rephrases it to 
+resolve any ambiguities and passes it to the DPR model which retrieves relevant memories from the memory pool. The retrieved memories and 
+clarifier output are fed into the memory processor to get a single context-relevant memory, which is then passed to an utterance generator 
+for producing a response from the chatbot. Every few turns a summarizer module is called to extract important information from dialogue and
+store it in the memory pool for the future use.
+
+Important components
+3.1 Utterance Clarifier:
+    - Conversations are often muddled with vague coreferences and contextual cures, an utterance clarifier is an LM prompted with the recent
+    dialogue to resolve any ambiguities.
+    - For example depending on the prior context, the user inputs 'Do you like working here?' and the clarifier would take this and provide an
+    output such as 'Does Sarah like wokring in XYZ company?'
+    - By resolving contextual ambiguity, the clarifier assists the DPR model and memory processor module by providing an information dense query
+    to fetch and process relevant documents.
+
+3.2 Memory Processor:
+    - Authors formulate memory processing as an LLM reasoning task of finding the most relevant information given the dialogue. Authors provide
+    CoT examples to show reasons for ignoring certain memories and synthesising others. For model incapable of CoT, authors simply provide few
+    shot examples without the reasoning portion.
+
+    - Since the memory pool accumulates as the conversation progresses authors use a pretrained DPR with the output of the clarifier as the 
+    query to retrieve the top K most relevant memories from the memory pool. The memory processor then condenses the top memories into one 
+    refined memory.
+
+3.3 Utterance Generator:
+    - The utterance generator generates the final response of the chatbot given the recent dialogue history and memory provided by the memory
+    processor. The prompt consists of the dialogue history, condensed memory and the generation instruction.
+
+3.4 Dialogue Summarizer:
+    - Few-shot prompts are used to record specific details of the conversation and the user.
+============================================================================================================================================
+Content - 4. Experimental Setup
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 2. Results
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 2. Conclusion
+============================================================================================================================================
+Not needed
