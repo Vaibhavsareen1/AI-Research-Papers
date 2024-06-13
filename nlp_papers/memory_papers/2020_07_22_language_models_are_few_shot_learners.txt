@@ -2,7 +2,7 @@
 Information about the paper
 ============================================================================================================================================
 Paper Name: Language models are few shot learners
-By: Aleksandra Piktus, Fabio Petroni, Vladmir Karapukhin et al
+By: Tom B Brown, Benjamin Mann, Nick Ryder et al
 Paper Link: https://arxiv.org/pdf/2005.14165
 Paper Submission Date: 22nd of July 2020
 ============================================================================================================================================
