@@ -8,8 +8,8 @@ Paper Submission Date: 21st of May 2023
 ============================================================================================================================================
 Why this paper?
 ============================================================================================================================================
-To understand how to add memory to main long conversations this paper was referenced as it gives insight on one of the ways in which LLMs
-can be used in order to add the concept of memory for a conversation without fine tuning the LLMs on dataset containing long conversations
+To understand how to add external memory to my AI agent at inference time the memory bank paper provides a good technique which can be 
+implemented without fine tuning LLM model
 ============================================================================================================================================
 Content - 1. Introduction
 ============================================================================================================================================
