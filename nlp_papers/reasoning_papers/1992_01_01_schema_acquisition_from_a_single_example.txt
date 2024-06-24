@@ -1,0 +1,112 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Schema Acquisition From a Single Example
+By: Woo-kyoung Ahn, William F. Brewer and Raymond J. Mooney
+Paper Link: https://www.cs.utexas.edu/~ml/papers/jep92.pdf
+Paper Submission Date: Yeah of 1992
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+To understand how to reason with Large Language Models i wanted to understand how to reason first. There is a reason why few shot prompting
+works and why models are able to provide reasons for their outputs. The underlying concept called Similarity Based Learning and Explanation
+Based Learning is explained in this paper.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+In psychology two different approaches have emerged in recent research on concept formation:
+    1. Similarity-Based Learning (SBL)
+    2. Explanation-Based Learning (EBL)
+
+SBL theories are based on the assumption that concepts are formed by extracting similarity across multiple examples where EBL theories 
+emphasize the role of prior knowledge in leanrning new concept if a machine has sufficient domain knowledge, EBL based models have shown
+success in the field of AI but there is no psychological evidence before the experiments done  in this paper that humans can learn concepts
+based on a single example using EBL approaches.
+
+The results of experiments conducted for this research paper shows that human learners can acquire a schema from a single example in knowledge
+rich domains but not in knowledge-poor domains. The experiments suggest that humans learn complex information use both SBL and EBL mechanism.
+============================================================================================================================================
+Content - 2. Similarity Based and Explanation Based Learing
+============================================================================================================================================
+2.1.1 Similarity-Based Approaches to Concept Learning
+Many models of concep learning have assumed that concepts are learned through the repeated occurance of similar instances. Most of the 
+traditional models reveals that most of the traditional models referred to as concepts models actually include a learning mechanism that is 
+too weak for many real world examples of concept learning.
+
+2.1.2 Similarity-Based Learning Models
+Authors cover 3 traditional models of simple concepts such as rule models, probabilistic models and exemplar models
+    2.1.2.1 Rule Based Models
+    Rule based models are based on the assumption that a concept consists of a set of defining rules and that these concepts are learned by 
+    generating hypothesis derived from initial instances and then testing the hypothesized rules. In experiments designed to show rule-based
+    learning, subjects attempt to learn the concepts by observing numerous instances of the concept, However, this may not have been the
+    appropriate method to study learning of these types of concepts because real-world concepts with sufficient and necessary features may 
+    often be acquired by exposure to a definition rather than by observation of multiple instances.
+
+    2.1.2.2 Probabilistic Models
+    Probabilistic models are based on the assumption that concepts are represented in the form of a unique memory of their exemplars.
+
+    2.1.2.3 Exemplar Models
+    Exemplar models are based on the assumption that concepts are represented in the form of a unique memory of their exemplars.
+
+Theories of 'schemaata' assume that forms of knowledge representations developed to account for complex knowledge such as knowledge of plans,
+spatial arrangements or sequences of events have typically assumed that some form of SBL accounts for schema acquisition. For example -
+1. "Scholars such as Schank and Abelson (1977) thrg=ough a series of repeated experiences, repeated events become a part of the memory whereas
+    non-repeated events become subjected to change in variables"
+2. "Scholars Rumelhart and Norman (1978) proposed that people acquire a new schema through either pattern recognition or through schema deduction"
+3. "Scholars Van Dijk and Kintsch (1983) suggest that if a situation model is used frequently it will form a context-independent script"
+
+2.1.3 Problems with the SBL approaches
+Authors think that the SBL approach to learning faces a number of difficulties.
+
+2.1.3.1 Relatively simple types of stimuli used in experiments to test SBL models.
+    Traditional concept formation experiments have almost always used simplified experimental materials. This methodological approach was adopted
+    because it was assumed that experiments using simple materials could be better controlled than those using more realistic materials and law
+    defined in simplified situationcould be generalized to complex situations. SBL models have not considered the possible interactions between
+    types of learning mechanisms and types of information to be learned.
+
+2.1.3.2 The models do not take into account the role of the learner's domain knowledge.
+    According to the authors many studies have pointed out the importance of background knowledge in concept formation. SBL models have not provided
+    an analysis of how an individual's learning is affected by what the individual already know.
+
+2.1.3.3 The models do not make distinction between explanatory and non explanatory informations.
+    As a learning mechanism, SBL seems more appropriate for non explanatory task
+
+2.1.3.4 The learning mechanism used in these models allow spurious correlations among examples to be generalized as constraints because
+of generalization
+process is not supportedby background knowledge.
+    Traditional SBL models are vulnerable to spurious correlations caused by the co-occurence of irrelevant aspects of a concept. For example -
+    "If an SBL system is given 10 newspaper articles on kidnapping in which all the kidnappers were wearing blue jeans, it could learn 
+    blue jeans was required for kidnapping."
+
+A learning model should be able to related co-occurences in the information to be learned to the goals of concepts to avoid spurious 
+correlations. Most SBL theories would predict that no generalization will occur with a single example because these approaches do not use 
+the explanatory structure of the example in the generalization process.
+
+2.2.1 Explanation Based Learning
+EBL approaches emphasize the role of people's background knowledge in concept acquisition. The prior knowledge provides a learner with 
+explanation for why examples belong to a concept. Therefore if people have enough domain know. It should be possible to acquire a schema
+from even a single example by generalizing its explanations.
+
+Domain knowledge generally consists of rules relating from a function or schemata for known plans and actions. This knoweledge is used to 
+explain why a particular object fulfills a certain function or why a sequence of actions achieves a goal.
+
+There are two basic concepts of EBL systems.
+1. Using domain knoweledge, the system tries to explain why the given example is an instance of the concept understudy. The explanation 
+process is very important for learning because it separates relevant information from irrelevant ones and provides justified generalization
+that avoid spurious correlations.
+2. The second step involves a generalization process in which irrelevant features are discarded and specific values are changed to variables 
+as long as the explanation remains valid.
+============================================================================================================================================
+Content - 3. An Example of an EBl system: Genesis
+============================================================================================================================================
+Not Needed
+============================================================================================================================================
+Content - 4. Problems with EBL approaches
+============================================================================================================================================
+A system based on explantions can only function effectively when it has sufficient knowledge about the domain, and the schema to be learned
+is organized by causal constraints, Therefore successful EBL cannot occur in domain in which the understander does not have sufficient
+knoweledge to construct an explanation. EBL systems provide no mechanism for making use of similarities across multiple examples.
+============================================================================================================================================
+Content - 5. Experiments
+============================================================================================================================================
+Not needed
