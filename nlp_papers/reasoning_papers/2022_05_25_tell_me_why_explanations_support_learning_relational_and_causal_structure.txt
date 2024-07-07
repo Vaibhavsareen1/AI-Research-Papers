@@ -1,0 +1,89 @@
+============================================================================================================================================
+Information about the paper
+============================================================================================================================================
+Paper Name: Tell me why! Explanations support learning relational and causal structure
+By: Andrew K Lampinen, Nicholas A Roy, Ishita Dasgupta et al
+Paper Link: https://arxiv.org/pdf/2112.03753
+Paper Submission Date: 25th of May 2022
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+To understand how to build Large Language Model based agents that can reason, this paper has helped shed light on how humans reason the
+transfer between two actions. The explanations which human beings generate how one action helps or leads to the other was crucially explained
+and demonstrated in this research paper.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Human learning of abstract, relational and causal structure benefits substantially from language and particularly explanations. Language
+helps us to identify structure in the world, and to structure our thinking. Explanations are that part of a language that provides explicit
+information about appropriate abstractions and causal structure are particularly useful.
+
+Few important points why explanations are important:
+1. Explanations mitigate credit assignment problems, by linking a concrete situation to reusable abstractions which helps humans to learn 
+   efficiently from otherwise underspecified examples.
+2. Explanations help make comparison and master relational and analogical reasoning.
+3. Explanations help generalize causal factors in a situation, improving causal inferences.
+4. Explanations help agents learn more effectively, preventing them from fixating on easy-but-inediquate shortcut features.
+5. Explanations also help agenst to disentangle confounded features, and can shape the way that agents generalize out-of-distribution on
+   deconfounded evaluation.
+6. Explanations enable agents to learn to perform experiments in order to identify the causal structure of each episode.
+
+According to authors there has been an increasing interest in using laanguage or explanations as a learning signals for machines. Rather 
+than seeking explanations post-hoc to help understand the system, some works have used explanations to help system understand the task.
+Most machine learning from explanations focuses on supervised learning, explanations cna be more relevant for RL agents which struggle with
+credit assignment, abstraction and generalization.
+============================================================================================================================================
+Content - 2. What is a language explanation?
+============================================================================================================================================
+Authors in the context of Reinforcement Learning Agents (RL Agents) define language explanation to be a string indicating a relationship
+between a situation, the agents behaviour and abstract task structure. For example -
+"After turning on an over, an agent might receive an explanation like 'turning on the over heats it up, to prepare for baking'."
+This explanation conveys the abstract causal links between an action and desired goal.
+
+There are many true statements that would not qualify as explanationos because they ignore the agents behaviour, task-relevant structure or
+both. For example - "The over is silver" would be an explanation unless that fact is relavant to the task.
+
+Authors in this paper demonstrate -
+1. The most effective way to exploit explanations is to train agents to predict them, rather than to simply observe them.
+2. In the demonstration the authors show that explanation prediction is learned much more rapidly than the tasks, supporting the idea that 
+   language helps agents learn task-relevant abstraction which in turn make learning the task easier.
+3. Explanations provide feedback relevant to the specific behaviour of the agent which are more effective than behaviour agnostic signals.
+4. Explanations help agents overcome biases toward easy features.
+
+Explanations posed in natural language may be simpler for humans to produce than other forms of supervision and thus authors believe that
+training agents to generate such explanations is a viable path towards both improved learning and generalization and perhaps towards more
+human-like and interpretable agent behavior.
+============================================================================================================================================
+Content - 3. The odd-one-out tasks
+============================================================================================================================================
+Finding the odd one out in a set of objects tasks have been used extensively in cognitive sciences. These tasks are challenging, because they
+involve both relational reasoning (same vs different) and abstraction (identifying uniqueness requires reasoning over all objects, and all
+dimensions along which objects may be related).
+
+For the sake of comparison authors learn agents with and without the help of language. The authors while learning agents with the aid of
+language classify the explanations they have used in two categories.
+1. Reward Explanation:
+The explanations that are produced after the agent chooses and identify the feature(s) that make the choice correct or incorrect.
+
+2. Property Explanation:
+The explanation produced before the agent chooses and explain the identity of the object the agent is facing by specifying its task-relevant
+properties.
+============================================================================================================================================
+Content - 4. Method: Generating Explanation
+============================================================================================================================================
+Authors focus on generating language explanation provided by the enviornment during training, Authors synthetically generate the explanations
+online, conditional on agent behaviour. These explanations could have been produced by the humans. The authors training the agent to predict
+the explanation as an auxillary signal to shape its representations as opposed to providing explanations as direct inputs. This approach does
+not require explanations at run time.
+
+In this approach the authors do not directly supervise agents nor tell agents how to use explanations. The agents simply predict explanations
+as an auxillary output.
+
+The agents authors use consist of a visual encoder, a memory and output heads. The encoder is a CNN and ResNet. The agent memory is a 4 layer
+Gated TransformerXl Memory, which receives the visual encoder output and previous rewards as inputs. The output of the memory is input to the
+heads. The policy and value heads are MLPs, trained with V-trace. The explanations head is a single layer LSTM which generates language 
+explanations.
+============================================================================================================================================
+Content - 5. Experiments
+============================================================================================================================================
+Not needed
