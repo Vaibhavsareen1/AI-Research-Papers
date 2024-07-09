@@ -1,0 +1,119 @@
+Paper Name: Reframing Instructional Prompts to GPTk's Language
+By: Swaroop Mishra, Daniel Khashabi, Chitta Baral, Yejin Choi, Hannaneh Hajishirzi
+Paper Link: https://arxiv.org/pdf/2109.07830
+Paper Submission Date: 15th of March 2022
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+To understand how to add reasoning to agents sometimes it crucial to understand how information can be stored for it to be used later on at
+a different stage. This paper introduces has introduced how complex information can be hidden behind pre defined words which can be invoked
+later inorder for the complex information to play its role which helps in the task of reasoning or logical thinking.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Prompting language models has made NLP modules accessible to non expert users through plain instructions written by non-experts of NLP tasks.
+The instruction that non experts provide are often long and contain abstract descriptions which are not easy to follow for language models, 
+However it is not clear whether this is due to the inherent difficulty of the target task or an artifact of the complex phrasing of their 
+language instructions.
+
+The authors of the paper want to understand the sensitivity of language models to the framing of the instructional prompts. The authors of 
+the paper analyze reframed instructions over 12 NATURAL INSTRUCTIONS which contain a variety of NLP tasks and their instructions. The 
+authors compare the quality of LMs in 'Raw' and 'Reframed' settings. Authors observe a notable performance gain in reframed instructions 
+over raw instructions.
+============================================================================================================================================
+Content - 2. Related Work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 3. Prompt Reframing
+============================================================================================================================================
+The authors in this section describe their 'reframing principles' and guidelines to operationalize them. To produce reframing principles 
+authors probe the instructions of various tasks in the training split of the NATURAL INSTRUCTIONS dataset to understand different failure 
+modes associated with prompting. The authors using GPT-3 for their probing.
+
+What authors understood from GPt-3's failures is that the reason GPT-3 fails to follow instructions is due to the long prompts provided by
+the user that often contains repeated information, abstract notion, analogies, complex statements requiring human commonsense and domain
+knowledge to make sense. These prompts are helpful to humans but incase of models it might unneccessary or even redundant.
+
+3.1 Reframing Principles
+Authors observe that short prompts that contain concrete statements and avoid terms associated with background knowledge improve GPT-3's 
+response to instructions. THe principles provided by the authors are:
+3.1.1 Use low-level pattern:
+    Instead of using terms that require background knowledge to understand, use various patterns about the expected output.
+3.1.2 Itemizing Instructions:
+    Turn descriptive attributes to bulleted lists and if there are any negation statement then turn them into assertion statements.
+3.1.3 Break it down:
+    Break down a task into multiple simpler tasks, wherever possible.
+3.1.4 Enforce Constraint:
+    Add explicit textual statements of output constraints.
+3.1.5 Specialize the instructions:
+    Customize the instructions so that they directly speak about the intended output.
+
+3.2. Reframing Techniques
+3.2.1 Pattern reframing:
+    Model failure: While humans have an incredible ability in understanding and acting with respect to abstract descriptions. LMs tend to
+                   ignore most of them or just repeat the content of such instructions in their output.
+
+    Approach: Find low level patterns in the development set and extrapolate those by adding similar patterns (3.1.1)
+
+3.2.2 Itemizing reframing:
+    Model failure: language models cannot follow long paragraphs stating multiple requirements and do not perform well when the requirements
+                   are formulated as a negative statement.
+    
+    Approach: Turn long descriptions into bulleted lists of several statements (3.1.2) and turn negative statements into positive ones. For 
+              example - "Don't create questions which are not answerable from the paragraph" into "create questions which are answerable from
+              the paragraph"
+
+This shows that models are not able to follow instructions which follow two different directions in one go (models in the future need to be 
+trained on this) and it is preferred to keep everything in the positive direction.
+
+3.2.3 Decompostion reframing:
+    Model failure: Tasks with implicit multi-step reasoning aare challenging for models, even after itemization reframing.
+
+    Approach: Wherever possible decompose a task into multiple different sub-tasks which can be executed either sequentially or in parallel
+              and hence make them relatively easier for the models. (3.1.3)
+
+3.2.4 Restraining reframing:
+    Model failure: Language models such as GPT-3 deviate from its objective. For example when predicting type of a question, the model Instead
+                  answers the question.
+    
+    Approach: Appending statements to the task instruction that expresses constraints about the output generation (3.1.4)
+
+3.2.5 Specialization Reframing:
+    Model failure: Language models ignore generic instructions such as 'answer the following questions' and sometimes misconceive the output
+                   format when the given instruction contains redundant text.
+
+    Approach: Reformulate the instruction so that the new prompt directly describe the low-level task needed to be done and drop all the 
+              repeated and generic statements (3.1.5)
+============================================================================================================================================
+Content - 4. Experimental Setup
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Emperical Results
+============================================================================================================================================
+5.1 Main Results:
+Authors have made the following observations regarding the results of the experiments they have conducted:
+5.1.1 Reframing improves upon the few-shot and zero-shot baselines.
+5.1.2 Reframing prompts retain their superiority across different models.
+5.1.3 Reframing instructions with a large LM is comparable to a mid sized supervised model.
+
+5.2 Analyses
+5.2.1 Contribution of Reframing Techniques
+Not needed
+
+5.2.2 Performance vs Instruction length
+Authors observe that reframed instructions are usually shorter than the original instructions, but performance gain is not always proportional
+to the length difference across various evaluation tasks.
+
+5.2.3 Qualitative Analysis
+The authors see that on a sample data set of 100 examples reframing introduced 4% of additional instructions at the same time correcting 24%
+errors caused in the original prompts
+============================================================================================================================================
+Content - 5. Emperical Results
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Emperical Results
+============================================================================================================================================
+Not needed
