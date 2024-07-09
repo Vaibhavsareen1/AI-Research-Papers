@@ -1,0 +1,146 @@
+Paper Name: Program Induction by Rationale Generation: Learning to Solve and Explain Algebraic Word Problems
+By: Wang Ling, Dani Yogatama, Chris Dyer, Phil Blunsom
+Paper Link: https://arxiv.org/pdf/1705.04146
+Paper Submission Date: 23rd of October 2017
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+To understand how to add reasoning to agents sometimes it crucial to understand how information can be stored for it to be used later on at
+a different stage. This paper introduces has introduced how complex information can be hidden behind pre defined words which can be invoked
+later inorder for the complex information to play its role which helps in the task of reasoning or logical thinking.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Behaving intelligently often requires mathematical reasoning. Some examples where mathematical reasoning is required are:
+1. Shopkeepers calculating change, tax and sales price.
+2. Agriculturists calculating the proper amounts of fertilizer, pesticides and water for their crops.
+
+Solving such task is challenging as it involves recognizing how goals, entities and quantities in the real world map onto a mathematical
+formalization, computing the solution and mapping the solution back onto the world.
+
+The authors of the paper want to attempt solving algebraic word problems by inducing and modeling programs that generate not only the answer,
+but an answer rationale i.e. a natural language explanation interspersed with algebraic expressions justifying the overall solution.
+
+Natural language not only enhance model interpretability but they provide a coarse guide to the structure of the arithematic programs that
+must be executed.
+
+The authors in this paper are using rationales in a different way as compared to rationales used in the prior work done in this domain. In
+the prior work interpretation models are trained to generate plausible sounding post-hoc description of the decision making process which 
+might not be accurate. The authors in this work generate rationale as a latent variable that gives rise to the answer.
+
+The author through their research for this paper contribute three things:
+1. Created a new dataset with more than 100K algebraic word problems that include both answers and natural language answer rationales.
+2. Sequence to Sequence model with that generates a sequence of instruction that when executed generates the rationale only after this the
+   answer is chosen.
+3. A technique for inferring programs that generate a rationale and ultimately the answer.
+
+Since the search space of possible programs is quite large and authors employ a heuristic search to find plausible next steps to guide the
+search for programs.
+============================================================================================================================================
+Content - 2. Dataset
+============================================================================================================================================
+Authors build a dataset of 100K problems. Each problem/question has been decomposed into 4 parts
+1. Question: The description of the problems.
+2. Options: The possible answer option (the problem statement has multiple choices to choose from)
+3. Rationale: Description of the rationale used to reach the correct answer.
+4. Correct Option: The label of the correct option.
+
+2.1 - Construction:
+Authors collection a set of 34,202 seed problems that consist of multiple option math questions. The authors turn to crowdsourcing to 
+generate new questions. Using their crowdsourcing approach they obtain 70,318 additional questions.
+
+2.2 Statistics
+Not needed
+============================================================================================================================================
+Content - 3. Model
+============================================================================================================================================
+Generating rationales for math problems is challenging as it requires models that learn to perform math operations at a finer granularity as
+each step within the solution must be explained. For example:
+'(27x + 17y)/(x + y) = 23' must be solved to obtain the answer. This can be solved by feeding the equation into an expression solver to 
+obtain 'x/y = 3/2'. Using an expression solver would skip the intermediate steps such as '27x + 17y = 23x + 23y' and '4x = 6y' which must be
+generated for this experiment.
+
+The authors propose a mode that generates a program containing both instructions that generate output and instruction that simple generate 
+intermediate values used by following instruction.
+
+The goal of the authors in this paper is -
+"Using (Question + Options) as input -> generate instructions (z) -> v (result of z's execution) -> y (rationale) -> obtain the correct 
+answer"
+
+3.1 Problem definition:
+Not needed
+
+3.2 Generating Programs to Generate rationales:
+Authors want to generate a latent sequence of 'program instruction' z = z_1, ..., z_|z| with length |z|. That will generate y when 
+executed. Authors express 'z' as a program that can access x(question + options), y(rationale) and the memory buffer m. Upon finishing the
+execution the instructions authors expect to place  the output in the output vector y.
+
+The authors use notations such as:
+x - Input sequence (question + option)
+z - The instruction sequence
+v - The values of obtained executing the instruction
+r - Instruction to either write the output directly into y or to the memory buffer
+
+By training a model to generate instructions that can manipulate existing tokens, the model benefits from the additional expressiveness needed
+to solve math problems within the generation process.
+
+The authors define 22 different operations such as (Id, Add, Subtract, Multiply), ... Choose() etc. The authors use 'Check' that given an 
+input string, searchers through the list of options and returns a string with the option index such as ('A', 'B', 'C', 'D', 'E')
+
+3.3 Generating and Executing instructions
+The instruction z_1 is a tuple consisting of -
+1. o_i = Operation.
+2. a_i = An ordered sequence of arguments
+3. r_i = A decision about where the result will be placed (directly inside y or in the memory buffer m)
+4. v_i = The result of applying the operation to its arguments
+
+That is 'z_i = (o_i, a_i, r_i, v_i)'
+o_i is an element of the pre-specified set of operations O. The number of arguments required by o_i is given by 'argc(o_i)'.
+
+Authors define the instructions probability as -
+'p(o_i, a_i, r_i, v_i | z_<i, x, y, m) = p(o_i | z_<i, x, o_i) x sigma(j, argc(o_i))[p(a_i,j | z_<i, x, o_i)] x [v_i == apply(o_i, a)]'
+
+Where z_<i - means all program instructions present before the ith state
+where p evaluates to 1 if it is true otherwise 0. 'apply' is a predefined function apply(f, x) which applies functions f on its arguments x.
+
+The authors use the first recurrent state h_i of the model to generate p(o_i | z_<i, x). To do this authors use softmax function on h_i 
+over all set of available operations O. i.e (Softmax(h_i) over all set of available operation -> o_i)
+
+In order to predict r_i a new hidden state r_i_1 is generated which is a function of the program hidden context (h_i) and an embedding of the 
+current predicted operation o_i. i.e (function(h_i, o_i) -> r_i_1), the hidden context r_i_1 us used to generate an output to determine where
+to place the result of the program in y or in the memory buffer m. To compute this probability p(r_i = OUTPUT | z_<i, x, o_i) = sigmoid(r_i *
+w_r_i_1 + b_r_i_1); if r_1 == OUTPUT then the result of operation is stored in the output y else stored in the memory. Once r_i is generated
+a_i needs to be predicted.
+
+The jth argument a_i,j can be either generated from
+1. A softmax over the vocabulary
+2. Copied from the input vector x.
+3. Copied from previously generated values in the output y or memory m.
+
+This decision is modeled using a latent predictory network the control over which method used to generate a_i,j is governed by a latent 
+variable q_i,j which belongs to (SOFTMAX, COPY-INPUT, COPY-OUTPUT), to make this decision similar to predicting r_i a new hidden state q_i,j_1
+is generated which an LSTM such that function(r_i_1, r_i) -> q_i,j_1 which then going through softmax function generates one of the three 
+values (SOFTMAX, COPY-INPUT, COPY_OUTPUT). Once the argument a_i, j are predicted then the arguments and the hidden state q_i,j_1 id used to
+generate the next state q_i,j + 1.
+
+Once all arguments for o_i are generated, the operation is executed to obtain v_i, the embedding of v_i, the final state of the instruction 
+q_i, a_i and the previous hidden state h_i are used to generate the state at the next timestamp h_i+1.
+============================================================================================================================================
+Content - 4. Inducing Programs while Learning
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Inducing Programs while Learning
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Inducing Programs while Learning
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Inducing Programs while Learning
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Inducing Programs while Learning
+============================================================================================================================================
