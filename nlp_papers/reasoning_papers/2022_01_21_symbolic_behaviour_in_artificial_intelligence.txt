@@ -1,0 +1,84 @@
+Paper Name: Symbolic Behaviour in Artificial Intelligence
+By: Adam Santoro, Andrew Lampinen, Kory W. Mathewson, Timothy Lillicrap and David Raposo (DeepMind)
+Paper Link: https://arxiv.org/pdf/2102.03406
+Paper Submission Date: 21st of January 2022
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+In order for an AI agent to reason and understand what humans converse it needs to understand large amount of information stored in symbols,
+words used within the conversation. For example if i state "Person x jumps like a kangaroo" then the word kangaroo has described the initial
+action, intensity of the jump and the final landing action of the jump. The AI agent would need to know this to infer and produce a response
+a suitable response to it. This paper helps me understand possible attributes of symbolic behaviour and what is needed to incorporate these 
+behaviour into AI agents 
+============================================================================================================================================
+Content - 1. Symbols and Intelligence
+============================================================================================================================================
+The ability to proficiently use symbols makes it possible to reason about the laws of nature, fly to the moon, write poetry and evoke 
+thoughts and feelings in the minds of others. AI pioneers Newell and Simon claimed that - "Symbols lie at the root of intelligent action and
+should therefore be a central component in the design of artificial Intelligence".
+
+Symbols are entities that mean something to someone. The origin and development of symbolic behaviour in humans suggests a way to make 
+progress towards developing AI that engages with symbols as humans do. Just as human symbolic fluency is built upon an ability to coordinate 
+and communicate in social settings. The authors suggest subjecting learning based machines (neural networks) to similar socio-cultural 
+pressures. According to authors it is through the combinations of rich , challending, diverse experiences of human-like-socio cultural 
+interactions and powerful learning based algorithms that will develop machines that proficiently use symbols.
+============================================================================================================================================
+Content - 2. Symbols Are Subjective
+============================================================================================================================================
+Symbols are inherently subjective constructs, their use and meaning is entangled with the state of their interpreters. An interpreter's 
+background, capabilities is entangled with the state of their interpreters. As an interpreter’s background, capabilities, and biases vary, 
+so will their subjective treatment of symbols.
+============================================================================================================================================
+Content - 3. Symbolic Behaviour
+============================================================================================================================================
+An interpreter’s symbolic behaviour—their use of symbols—roughly comprises a set of interrelated traits that reveal how they participate in
+an infrastructure of meaning-by-convention. Human symbolic behaviour is -
+
+3.1 Receptive:
+Symbolic behaviour includes the ability to appreciate existing conventions, and to receive new ones. For example -
+"Humans can learn a new word from a definition or example. But many animals and models can learn such associations only to some degree."
+
+Receptiveness is the predominant trait of current AI. There are many examples that can express the presence of 'receptivity' in AI
+1. Modern Language models learn and imitate existing conventions.
+2. Multi-modal models learn about conventions of denotation, so that they can e.g. produce an image from a description.
+3. Instruction-following agents map between symbolic inputs and goals.
+
+3.2 Constructive:
+Symbolic behaviour has the ability to form new conventions as meaning is conventional. Such methods can be used to increase the efficiency
+of communication or reasoning. For example - 
+"Creating a new term for a recurring situation"
+"Creating a new system of knowledge"
+
+The constructive trait is less visible in current AI research. Some ability to construct novel concepts emerges in large language models but
+only when prompted. Few examples to understand how contructive trait can be present in AI:
+1. A model is asked a question, and when explaining its answer it invents a new symbol to clarify its reasoning process or communication.
+2. Agents cooperating on a team invent terminology so that they can communicate without exposing their strategy to their opponents.
+3. A model constructs a novel mathematical concept in order to prove something new.
+
+3.3 Embedded:
+Symbols conform and contribute to the broader symbolic system in which they’re situated, and symbolic behaviour reflects this understanding. 
+Because the meaning of a symbol is determined partly through its interactions with the entire symbol system, introducing new symbols
+can radically alter the interpretation of other symbols.
+
+3.4 Malleable:
+The conventionality of meaning allows for change. Meaning can be altered by context, by the creation of other symbols or concepts, or by
+intentionally redefining the symbol.
+
+3.5 Meaningful:
+Symbolic behavior should demonstrate use and communication of the meaning behind the symbols and the reasoning processes that employ them.
+
+3.6 Graded:
+symbol use should not be binary.
+============================================================================================================================================
+Content - 4. How Can Symbolic Behaviour Come About?
+============================================================================================================================================
+Some traditional theories suggest that symbolic competency could be enabled by unique events in evolution that equip humans with “innate”
+mental organs and some theories state that the human ability for symbolic thought may have instead resulted from a gradual internalization
+of evolved behaviours involved in socio-cultural interaction and communication.
+
+Authors say Fluent symbol-use in machines will emerge when situated, learning-based agents are immersed in scenarios that demand an active 
+participation with meaning-by-convention.
+============================================================================================================================================
+Content - 5. Conclusion
+============================================================================================================================================
+Not needed
