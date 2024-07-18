@@ -1,0 +1,117 @@
+Paper Name: Chain of thought prompting elicits reasoning in large Language models
+By: Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma et al
+Paper Link: https://arxiv.org/pdf/2201.11903
+Paper Submission Date: 10th of Jan 2023
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+To under how to make the language models reason it is important to understand how reasoning is done by humans. Chain-of-thought prompting 
+mimics how humans reason step by step before reaching the final answer to a particular problem statement. The paper introduces what chain-of
+-thought prompting is and helps me understand how models behave with incorporation of chain-of-thought during the training and test phase.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+In the Natural Language Processing (NLP) landscape the language models have improved as they were scaled up in size as the scaling up offers
+a range of benefits such as improved performance and sample efficiency. Tasks such as arithematic, commonsense and symbolic reasoning have
+not benefitted from the scaling of language models. The authors of the paper provide us with a simple method to unlock the reasoning ability
+of large language models which has been motivated by two ideas.
+1. Techniques for arithematic reasoning can benefit from generating natural language rationale that lead to the final answer.
+2. Large Language models offer the exciting prospect of in-context few-shot learning via prompting.
+
+According to authors both of the above ideas do have few limitations. For rationale-augmented training and finetuning methods. It is costly
+to create a large set of high quality rationales which is much more complicated than simple input-output pairs used in normal machine
+learning. Few shot prompting methods work poorly on tasks that require reasoning abiliities and often do not improve substantially with 
+increasing language model scale.
+
+The authors of the paper combine the strengths of the two ideas into one where they explore the ability of language models to perform
+few-shot prompting for reasoning tasks, given the prompt that consists of triples. input -> chain-of-thought -> output.
+
+A "chain-of-thought" is a series of intermediate natural language reasoning steps that lead to the final output. The authors call this
+approach "chain-of-thought prompting".
+============================================================================================================================================
+Content - 2. Chain-of-Thought prompting
+============================================================================================================================================
+When solving a complicated reasoning task such as a multi-step math word problem. It is typical to decompose the problem into intermediate
+steps with the ability to generate similiar chain of thought i.e a coherent series of intermediate reasoning steps that lead to the final
+answer for a problem.
+
+The authors show that sufficiently large language models can generate chain of thoughts if demonstration of chain-of-thought reasoning 
+are provided in the exemplars for few-shot prompting.
+
+Benefits of chain-of-thought prompting in large language models
+1. Chain-of-thought in principle allows the models to decompose multi-step problems into intermediate steps.
+2. Chain-of-thought provides an interpretable window into the behaviour of the mode, suggesting how it might have arrived at a particular
+   answer and providing opportunities to debug where the reasoning path went wrong.
+3. Chain-of-thought reasoning can be readily elicited in sufficiently large language models simply by including examples of chain-of-thought
+   sequences into the exemplars of few-shot prompting
+============================================================================================================================================
+Content - 3. Arithematic Reasoning
+============================================================================================================================================
+The authors used chain of thought prompting with models of different scales to solve arithematic reasoning. The models range from 350M to 
+540B parameters in size. There are three takeaways of tests performed to evaluate arithematic reasoning of the models using chain of
+thought prompting.
+
+3.2 Result (takeaways)
+3.2.1 Chain-of-Thought prompting is an emergent ability of model scale i.e chain-of-thought prompting does not positively impact performance
+      for small models and only yields performance gains when used with models of size ~100B parameters. (At the time of the paper this can
+      be due to small models not trained on dataset and hence the models dont know how to think step by step)
+3.2.2 Chain-of-Thought prompting has larger performance gains for more complicated problems.
+3.2.3 Chain-of-Thought prompting with large models such as (GPT 175B or PaLM 540B) compare favourably to prior state of the art, which 
+      typically finetunes a task-specific model on a labeled training dataset.
+3.2.4 The successful use of chain-of-thought does not depend upon a particular linguistic style (This takeaway is from section of 3.4 
+      robustness of chain-of-thought)
+============================================================================================================================================
+Content - 4. Commonsense Reasoning
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Sumbolic Reasoning
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 6. Discussion
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 7. Related Work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 8. Conclusion
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 9. Acknowledgements
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 10. Frequently Asked Questions
+============================================================================================================================================
+10.1 Why does increasing model (number of parameters) improve chain-of-thought prompting?
+Scaling up language models has been shown to confer benefits such as improved performance and sample efficiency, but according to the authors
+chain-of-thought reasoning is emergent in the sense that its success cannot be predicted only by extrapolating the performance of small scale
+models, as chain of thought actually hurts performance of most of the models smaller than 10B parameters.
+
+The question of why model scale improves chain-of-thought prompting is multi-faceted. The authors saw that the PaLM 62B mode 45 errors which
+the authors categorized into 3 categories namely-
+1. Semantic understanding (20 errors)
+2. One step missing (18 errors)
+3. Other (7 errors)
+
+PaLM 540B solved 6 of semantic errors, 12 of one step missing error and 4 of the Other errors. This result appears consistent with the 
+hypothesis that language models acquire a range of semantic understanding and logical reasoning skills as a function of a model scale. (This
+could also be because the smaller models might not have seen the data that leads to development of skills related to reasoning)
+
+10.2 What is the role of prompt engineering?
+Not needed
+
+10.3 Will chain-of-thought prompting improve performance for my task of interest?
+Chain-of-thought helps the most when three conditions are met.
+1. The task is challenging and requires multi-step reasoning.
+2. A large language model is used (~100B)
+3. The scaling curve is relatively flat.
+(The reason for point 2 might be cause of the small language models of that time were not trained on data containing chain-of-thought
+explanations)
+
+10.4 Why is prompting with the equation only not enought for some arithematic reasoning dataset?
+Not needed
