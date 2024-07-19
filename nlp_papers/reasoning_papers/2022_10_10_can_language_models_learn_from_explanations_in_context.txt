@@ -1,0 +1,95 @@
+Paper Name: Can language models learn from explanations in context?
+By: Andrew K. Lampinen, Ishita Dasgupta, Stephanie C. Y. Chan et al
+Paper Link: https://arxiv.org/pdf/2204.02329
+Paper Submission Date: 10th of October 2023
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper introduces how to add explanations to a question answer pair in a way which is not computationally expensive. The reason this 
+paper is read because the authors do a comparative study of diffferent models on their performance of using explanations to reach the final
+answer. The paper has helped me understand how to induce reasoning capability in order for an AI agent to learn and reason.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Large language models appear to exhibit some in context learning abilities, such that they can infer how to perform a new language task
+through few-shot learning i.e by providing few examples of input and output pairs within the model's context window, but without training,
+although it is not always clear what is being learned or inferred from these examples in the prompts.
+
+The ability to adapt to a new task from a few shot prompt bears some resemblance to the flexibility with which humans can adapt with
+instructions or examples. Explanations also play a central role in human learning as explanations highlight task principles that allow us to
+generalize broadly. Thus explanations can clarify the intended task by illustrating the principles that link questions to answers.
+
+Authors attempt to investigate whether language models can benefit from explanations when learning from examples in-context. Authors also 
+want to see if 'explanations of answers can improve few-shot task performance'. The authors want to check if explanations help the model
+to understand the task at hand.
+
+This experiment is interesting for authors as the experiment sheds light on what kind of in-context learning abilities does the language 
+model exhibits.
+============================================================================================================================================
+Content - 2. Methods
+============================================================================================================================================
+2.1 Dataset sampled from BIG-Bench
+Not needed
+
+2.2 Language models
+THe authors had accessed to language models with parameters ranging from 1B to 280B, these models are from different families and have
+different architectures but they have a similar context length of 2048 tokens. Evaluating across a range of model scale allows authors to
+examine whether the effect of explanations depends upon the model scale.
+
+2.3 Annotating examples with explanations
+Not needed
+
+2.4 Prompt and evaluation
+In the prompts the author had created the authors placed explanations on a line after the answers which is preceeded by 'explanations'. This
+is in contrast to prior work where explanation reasoning was placed before the answer. One benefit to explanations after the answer is that 
+evaluation is identical whether the explanations are provided or not and the model will try to generate answers before an explanation.
+
+Explanations before the answer require more computation at the time of evaluation.
+
+2.5 Tuning or selecting explanations
+Not needed
+
+2.6 Analyses
+Not needed
+============================================================================================================================================
+Content - 3. Results
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Related work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Discussion
+============================================================================================================================================
+5.1 Can explanations improve few-shot learning?
+According to the experimetts the benefits depend on the model scale and explanation quality. For a large model even untuned explanations
+resulted in a modest but significant improvement in performance. Furthermore tuning the explanations for the task can substantially increase
+their benefits. 
+
+5.2 Why are post-answer explanations interesting?
+The authors focused on providing explanations after answers, rather than chains of reasoning before the answer. At inference time post
+answer explanations do not effect the evaluation pipeline., because the model will produce an answer before it produces an explanation. Pre 
+answer chains of reasoning can allow the model to output a reasoning process and process the problem step-by-step before answering. By
+contrast post-answer explanations can only shae the reasoning processes abstractly, by changing task inference, because the model has equal
+number of processing step between the question and answer acrosss all prompt conditions, the effect of explanations is due to 'change in how
+model is processing the question and possible answers. The benefits of explanations therefore result from fairly sophisticated higher-order
+inferences during in-context learning.
+
+5.3 What do our results imply about LM's abiliity for in-context learning?
+Not needed
+
+5.4 How do explanations relate to instructions?
+Prior work has found that task instructions can be more effective than examples. Authors found that the effect of task instructions was
+smaller that that of few-shot examples or explanations. This may be due to prior work tuning instructions heavily for performance thus
+making the prompts arguably not 'zero-shot'.
+
+5.5 How does our work relate to human language processing?
+Not needed
+
+5.6 What are the benefits of our research methods?
+Not needed
+============================================================================================================================================
+Content - 6. Conclusion
+============================================================================================================================================
+Not needed
