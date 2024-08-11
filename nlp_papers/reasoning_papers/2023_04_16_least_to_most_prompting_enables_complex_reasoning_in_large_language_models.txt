@@ -1,0 +1,63 @@
+Paper Name: Least-To-Most Prompting enables complex reasoning in large language models
+By: Denny Zhou, Nathanael Scharli, Le Hou, Jason Wei, Nathan Scales et al
+Paper Submission Date: 16th of April 2023
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+This paper resonates with what I have understood as to how reasoning needs to be added in an agentic workflow.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Despite the great success of deep learning there stilll remains huge differences in between human intelligence and machine learning. These
+differences are:
+1. Given a new task, humans usually can learn to accomplish it from only a few demonstration examples, while machine learning requires a
+   large amount of labeled data for model training.
+2. Humans can clearly explain the underlying rationale for their predictions or decisions, while machine learning is essentially a black box.
+3. Humans can solve problems more difficult than any they have seen before, while for machine learning, examples in training and testing are
+   typically at the same level of difficulty.
+
+Chain-of-Thought prompting approach has taken a significant step for narrowing the gap between human intelligence and machine intelligence.
+Combining Chain-of-Thought prompting combined with few-shot prompting largely outperforms the state-of-the-art results in the literature on 
+many challenging natural language processing tasks obtained from specially designed neural models trained with hundreds of times more
+annotated examples, while being fully interpretable.
+
+According to authors Chain-of-Thought prompting has a key limitation which is it often performs poorly on tasks that require generalization.
+To tackle this issue the authors propose 'Least-to-Most prompting'. It consists of two stages and both stages are implemented by few-shot
+prompting, so there is no training or finetuning in either stage.
+
+The authors have borrowed the term 'Least-to-Most prompting' from educational psychology where it is used to denote the technique of using a
+progressive sequence of prompts to help a student to learn a new skill. Empirical results on symbolic manipulation, compositional
+generalization and math reasoning show that 'Least-to-Most prompting' can indeed generalize to problems harder than those demonstrated.
+============================================================================================================================================
+Content - 2. Least-to-Most Prompting
+============================================================================================================================================
+Least-to-Most prompting teaches language models how to solve a complex problem by decomposing it to a series of simpler subproblems. It 
+consists of two stages.
+
+1. Decomposition: The prompt in this stage contains constant examples that demonstrate the decomposition, followed by the specific question
+                  to be decomposed.
+2. Subproblem solving: The prompt in this stage consists of three parts:
+    2.1 Constant examples demonstrating how subproblems are solved
+    2.2 A potentially empty list of previously answered subquestions and generated solutions
+    2.3 The question to be answered next.
+
+Least-to-Most prompting can be combined with other prompting techniques like chain-of-thought reasoning and self-consistency but does not
+need to be.
+============================================================================================================================================
+Content - 3. Results
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 4. Related Work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Limitation
+============================================================================================================================================
+Decomposition prompts typically don't generalize well across different domains. For instance, a prompt that demonstrates decomposing math
+word problems isn't effective for teaching large language models to break down common sense reasoning problems. A new prompt must be
+designed to demonstrate decomposition for these types of problems in order to achieve optimal performance.
+============================================================================================================================================
+Content - 6. Conclusion and Discussion
+============================================================================================================================================
+Not needed
