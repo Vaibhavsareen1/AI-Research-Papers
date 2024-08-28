@@ -1,0 +1,69 @@
+Paper Name: PAL: Program Aided Language Models
+By: Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu et al 
+Paper Link: https://arxiv.org/pdf/2211.10435
+Paper Submission Date: 27th of Jan 2023
+============================================================================================================================================
+Why this paper?
+============================================================================================================================================
+A lot of problems such as problems in the domains of mathematical reasoning, symbolic reasoning, relationship understanding requires humans
+to think and reason in a structured manner. In order to induce the same approach we need to introduce dataset which is present in a structured
+form. For us most of the programming code which is written is structured. Paper induces a thought that we can represent structured reasoning 
+using codes which can be further executed using an interpreter.
+============================================================================================================================================
+Content - 1. Introduction
+============================================================================================================================================
+Large Language Models (LLMs) have shown progress in reasoning tasks and these reasoning processes have been accelerated by methods that
+require LLMs to generate their explicit reasoning steps such as 'Chain-of-Thought', 'Scratch-Pads', 'Self-Consistency' and 'Least-To-Most'
+prompting. Most of the LLMs of the current generation have been trained on datasets which have problem statements solved along with their
+reasons (chain-of-reasons). With the help of Chain-of-Thought reasoning LLms are able to solve the arithematic problems which are not too 
+complex, These LLMs are unable to solve those problems which require complex reasoning to be done. Even if models are fine tuned on datasets
+containing such complex problems then the most common reasoning reported for their failures is 'incorrect reasoning' and 'incorrect 
+calculation'.
+
+Even though LLMs are able to reason they are not able to perform complex tasks where the LLMs have to reason steps to solve a particular task
+and at the same time breakdown the steps into sub steps and check where arithematic reasoning, common sense reasoning and symbolic reasoning
+is required. The authors propose 'Program-Aided Language Models'. This paper provides a direction for research to take place when it comes to 
+arithematic reasoning.
+
+The authors propose a method in which LLMs are needed to read natural language problems and generate programs as reasoning steps, but 
+offloads the solution step to a python interpreter. This offloading leverages an LLM that can decompose a natural language problems into 
+programming steps and most of the SOTA LLMS are trained on both natural language and programming language.
+============================================================================================================================================
+Content - 2. Background: Few-shot prompting
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 3. Program-Aided Language models
+============================================================================================================================================
+In a PAL the authors propose to generate thoughts 't' for given natural language problems x as interleaved natural language (NL) and 
+programming language (PL) statements. The output is then post-process and set to the interpretor to be executed. The LLM model is instructed
+to present the natural language as comments (# followed by the reasoning steps)
+Example: 
+``` Python
+# Roger started with 5 tennis balls.
+tennis_balls = 5
+# 2 cans of 3 tennis balls each is
+bought_balls = 2 * 3
+# tennis balls. The answer is
+answer = tennis_balls + bought_balls
+```
+============================================================================================================================================
+Content - 4. Experimental Setup
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 5. Results
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 6. Analysis
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 7. Related Work
+============================================================================================================================================
+Not needed
+============================================================================================================================================
+Content - 8. Conclusion
+============================================================================================================================================
+Not needed
